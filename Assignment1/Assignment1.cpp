@@ -2,76 +2,70 @@
 #include "Stack.h"
 using namespace std;
 
+int priority(char);
+
 int main()
 {
+	char infix[20], postfix[20], ch;
 	Stack s;
-	int choice;
+	int i, j = 0;
+	printf("Enter the infix expression :- ");
+	cin.getline(infix,20);
 
-	while(1)
+	for (i=0; infix[i] != '\0'; i++)
 	{
-		cout<<"\nStack"<<endl;
-		cout<<"1.Push"<<endl;
-		cout<<"2.Pop"<<endl;
-		cout<<"3.Display"<<endl;
-		cout<<"4.Top"<<endl;
-		cout<<"5.Reverse"<<endl;
-		cout<<"6.Exit"<<endl;
-		cout<<"\nEnter choice:- ";
-		cin>>choice;
-
-		switch(choice)
+		switch (infix[i])
 		{
-			case 1:
-				char x;
-				cout<<"Enter element to push:- ";
-				cin>>x;
-				s.push(x);
-				cout<<"\nElement "<<x<<" pushed successfully\n";
+			case '(':
+				s.push('(');
+				break;
+			case '+':
+			case '-':
+			case '/':
+			case '*':
+			case '%':
+			case '$':
+				while (!s.isempty() && priority(s.topelement()) >= priority(infix[i]))
+				{
+					postfix[j] = s.pop();
+					j++;
+			   	}
+		   		s.push(infix[i]);
+			   	break;
+
+			case ')':
+				ch = s.pop();
+				while (ch != '(')
+				{
+					postfix[j] = ch;
+					j++;
+					ch = s.pop();
+				}
 				break;
 
-			case 2:
-				if(s.isempty())
-				{
-					cout<<"Stack is empty"<<endl;
-					break;
-				}
-				cout<<"Element popped is:- "<<s.pop()<<endl;
-				break;
-
-			case 3:
-				if(s.isempty())
-				{
-					cout<<"Stack is empty"<<endl;
-					break;
-				}
-				cout<<"Elements of stack are:- ";
-				s.display();
-				cout<<endl;
-				break;
-
-			case 4:
-				if(s.isempty())
-				{
-					cout<<"Stack is empty"<<endl;
-					break;
-				}
-				cout<<"Top element of stack is:- ";
-				cout<<x<<endl;
-				break;
-			case 5:
-				if(s.isempty())
-				{
-					cout<<"Stack is empty"<<endl;
-					break;
-				}
-				s.reverse();
-				cout<<"Linked list reversed successfully"<<endl;
-				break;
-			case 6:
-				return EXIT_SUCCESS;
 			default:
-				cout<<"Error in choice, try again"<<endl;
+				postfix[j] = infix[i];
+				j++;
 		}
 	}
-	return EXIT_SUCCESS;
+	while (!s.isempty())
+	{
+		postfix[j] = s.pop();
+		j++;
+	}
+	postfix[j] = '\0';
+
+	cout<<"Postfix expression is "<<postfix;
+	return 0;
+}
+
+int priority(char ch)
+{
+	if (ch == '^' || ch == '$')
+		return 3;
+	if (ch == '/' || ch == '*' || ch == '%')
+		return 2;
+	if (ch == '+' || ch == '-')
+		return 1;
+	return 0;
 }
