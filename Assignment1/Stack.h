@@ -1,10 +1,8 @@
-class Stack;
-
 class Node
 {
-	friend class Stack;
-	char data;
-	Node *next;
+	public:
+		char data;
+		Node *next;
 };
 
 class Stack
