@@ -1,20 +1,22 @@
-class Node
-{
-	public:
-		char data;
-		Node *next;
-};
 
+
+template <class T>
 class Stack
 {
+	
+	struct Node
+     {
+	     T data;
+	     Node *next;
+     };
 	Node *top;
 
 	public:
 		Stack();
-		void push(char);
-		char pop();
-		char topelement();
-		char isempty();
+		void push(T);
+		T pop();
+		T topelement();
+		int isempty();
 		void reverse();
 		void display();
 

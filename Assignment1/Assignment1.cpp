@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string.h>
-#include<math.h>
-#include "Stack.h"
+ #include<math.h>
+#include "Stack.cpp"
 using namespace std;
 
 int priority(char);
@@ -53,7 +53,7 @@ int main()
 void prefix()
 {
 	char infix[20], prefix[20], ch;
-	Stack s;
+	Stack<char> s;
 	int i, j = 0;
 	cout<<"Enter the infix expression :- ";
 	cin.ignore();
@@ -84,7 +84,7 @@ void prefix()
 				break;
 
 			case '^':
-				while (!s.isempty() && priority(s.topelement()) > priority(infix[i]))
+				while (!s.isempty() && priority(s.topelement()) >= priority(infix[i]))
 				{
 					prefix[j] = s.pop();
 					j++;
@@ -119,7 +119,7 @@ void prefix()
 void postfix()
 {
 	char infix[20], postfix[20], ch;
-	Stack s;
+	Stack<char> s;
 	int i, j = 0;
 	cin.ignore();
 	cout<<"Enter the infix expression :- ";
@@ -183,7 +183,7 @@ void postfix()
 
 void prefixeval()
 {
-	Stack s;
+	Stack<char> s;
 	char prefix[40];
 	int i,j=0,op1,op2,vals[20];
 	cin.ignore();
@@ -230,7 +230,7 @@ void prefixeval()
 
 void postfixeval()
 {
-	Stack s;
+	Stack<char> s;
 	char postfix[40];
 	int i,op1,op2,val;
 	cin.ignore();
@@ -286,7 +286,7 @@ int priority(char ch)
 
 void strrev(char prefix[])
 {
-	Stack s;
+	Stack<char> s;
 	int i;
 	for(i=0;i<strlen(prefix);i++)
 		s.push(prefix[i]);
