@@ -1,3 +1,23 @@
+/* An eg of DESC Priority Queue */
+#include <stdio.h>
+#include <conio.h>
+#define SIZE 5
+
+struct queue
+{
+	int data;
+	int flag;
+};
+
+int front, rear;   /* global decln */
+
+/* fn decls */
+void init_q();
+void addq(struct queue [],int);
+int delq(struct queue []);
+void displayq(struct queue []);
+int isqempty();
+int isqfull();
 
 void main()
 {
@@ -52,101 +72,3 @@ void main()
 		getch();
 	}
 }
-
-void init_q()
-{
-	front = rear = -1;
-}
-
-void addq(struct queue q[],int no)
-{
-	rear++;
-	q[rear].data = no;
-	q[rear].flag = 0;  /* imp  */
-	/* check whether if it is 1st element. If so, increment front also */
-	if (front == -1)
-		front = 0;
-}
-
-void displayq(struct queue q[ ])
-{
-	int i;
-	for (i=front;i<=rear;i++)
-	{
-		if (q[i].flag == 0)
-			printf("%d ",q[i].data);
-	}
-}
-
-int delq(struct queue q[])
-{
-	int i, max, pos;
-	/* 1st find the undeleted element */
-	for (i=0;i<=rear;i++)
-	{
-		if (q[i].flag == 0)
-		{
-			max = q[i].data;
-			pos = i;
-			break;
-		}
-	}
-	/* search begins for max undeleted element */
-	for (i=pos+1;i<=rear;i++)
-	{
-		if (q[i].flag == 0 && max < q[i].data)
-		{
-			max = q[i].data;
-			pos = i;
-			/* no break bcoz the search continues */
-		}
-	}
-	q[pos].flag = 1;  /* logical deletion of element */
-	/* just check whether the element deleted now is last element or
-	   not. If so, queue is empty */
-	pos = -1;
-	for (i=front;i<=rear;i++)
-	{
-		if (q[i].flag == 0)
-		{
-			pos = i;
-			break;
-		}
-	}
-	if (pos == -1)
-		front = rear = -1;  /* reset the queue to accept a fresh
-					batch of elements */
-	return max;
-}
-
-int isqempty()
-{
-	if (front == -1)
-		return 1;
-
-	return 0;
-}
-
-int isqfull()
-{
-	if (rear == SIZE-1)
-		return 1;
-
-	return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

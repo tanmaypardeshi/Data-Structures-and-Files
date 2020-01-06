@@ -4,14 +4,15 @@ using namespace std;
 
 LinkedList::LinkedList()
 {
+	flag=1;
 	head=NULL;
 }
 
-void LinkedList::insert(int data,int pos)
+void LinkedList::insert(int data)
 {
 	Node *current=new Node;
-	Node *temp;
 	current->data=data;
+	current->flag=0;
 	current->next=NULL;
 	
 	if(head==NULL)
@@ -22,20 +23,11 @@ void LinkedList::insert(int data,int pos)
 	}
 	else
 	{
-		if(pos==1)
-		{
-			current->next=head;
-			head=current;
-			temp=current;
-		}
-		else
-		{
-			for(int i=0;i<pos-1;i++)
-				temp=temp->next;
-			
-			current->next=temp->next;
-			temp->next=current;
-		}
+		for(int i=0;i<pos-1;i++)
+			temp=temp->next;
+		
+		current->next=temp->next;
+		temp->next=current;
 	}	
 }
 

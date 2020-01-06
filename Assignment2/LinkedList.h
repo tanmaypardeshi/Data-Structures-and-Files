@@ -3,6 +3,7 @@ class LinkedList
 	struct Node
 	{
 		int data;
+		int flag;
 		Node *next;
 	};
    	Node *head;
