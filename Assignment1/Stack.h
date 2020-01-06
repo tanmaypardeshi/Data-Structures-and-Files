@@ -1,4 +1,9 @@
-
+/* 
+Assignment 1
+Name:- Tanmay Pardeshi
+Roll number:- 23260
+Batch:- H10
+*/
 
 template <class T>
 class Stack

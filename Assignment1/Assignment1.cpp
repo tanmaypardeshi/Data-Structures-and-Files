@@ -1,6 +1,13 @@
+/* 
+Assignment 1
+Name:- Tanmay Pardeshi
+Roll number:- 23260
+Batch:- H10
+*/
+
 #include<iostream>
 #include<string.h>
- #include<math.h>
+#include<math.h>
 #include "Stack.cpp"
 using namespace std;
 
