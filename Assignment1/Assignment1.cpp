@@ -11,55 +11,31 @@ Batch:- H10
 #include "Stack.cpp"
 using namespace std;
 
-int priority(char);
-void prefix();
-void postfix();
-void prefixeval();
-void postfixeval();
-void strrev(char []);
-
-
-int main()
+class Expression
 {
-	int choice,result;
+	char infix[40],postfix[40],prefix[40];
+	
+	public:
+		Expression();
+		int priority(char);
+		void prefixconv();
+		void postfixconv();
+		void prefixeval();
+		void postfixeval();
+		void strrev(char []);
+};
 
-	while(1)
-	{
-		cout<<"\nConversion and Evaluation of Expressions"<<endl;
-		cout<<"1. Conversion of infix expression to prefix expression"<<endl;
-		cout<<"2. Conversion of infix expression to postfix expression"<<endl;
-		cout<<"3. Evaluation of prefix expression"<<endl;
-		cout<<"4. Evaluation of postfix expression"<<endl;
-		cout<<"5. Exit program"<<endl;
-		cout<<"\nEnter your choice:- ";
-		cin>>choice;
-
-		switch(choice)
-		{
-			case 1:
-				prefix();
-				break;
-			case 2:
-				postfix();
-				break;
-			case 3:
-				prefixeval();
-				break;
-			case 4:
-				postfixeval();
-				break;
-			case 5:
-				return 0;
-			default:
-				cout<<"\nError in choice, try again"<<endl;
-		}
-	}
-	return 0;
+Expression::Expression()
+{
+	infix[0]='\0';
+	prefix[0]='\0';
+	postfix[0]='\0';
 }
 
-void prefix()
+
+void Expression::prefixconv()
 {
-	char infix[20], prefix[20], ch;
+	char ch;
 	Stack<char> s;
 	int i, j = 0;
 	cout<<"Enter the infix expression :- ";
@@ -123,9 +99,9 @@ void prefix()
 }
 
 
-void postfix()
+void Expression::postfixconv()
 {
-	char infix[20], postfix[20], ch;
+	char ch;
 	Stack<char> s;
 	int i, j = 0;
 	cin.ignore();
@@ -188,10 +164,9 @@ void postfix()
 	cout<<"Postfix expression is "<<postfix<<endl;
 }
 
-void prefixeval()
+void Expression:: prefixeval()
 {
 	Stack<char> s;
-	char prefix[40];
 	int i,j=0,op1,op2,vals[20];
 	cin.ignore();
 	cout<<"Enter the prefix expression:- ";
@@ -205,11 +180,21 @@ void prefixeval()
 			cin>>vals[j];
 			j++;
 		}
+		if(isdigit(prefix[i]))
+		{
+			vals[j]=(int(prefix[j])-48);
+			j++;
+		}
 	}
 	j--;
 	for(i=strlen(prefix)-1;i>=0;i--)
 	{
-		if (isalpha(prefix[i]))
+		if(isalpha(prefix[i]))
+		{
+			s.push(vals[j]);
+			j--;
+		}
+		else if(isdigit(vals[j]))
 		{
 			s.push(vals[j]);
 			j--;
@@ -235,10 +220,9 @@ void prefixeval()
 	cout<<"Result of evaluating expression is "<<(int)s.pop()<<endl;
 }
 
-void postfixeval()
+void Expression::postfixeval()
 {
 	Stack<char> s;
-	char postfix[40];
 	int i,op1,op2,val;
 	cin.ignore();
 	cout<<"Enter the postfix expression:- ";
@@ -250,6 +234,11 @@ void postfixeval()
 		{
 			cout<<"Enter value for operand "<<postfix[i]<<":- ";
 			cin>>val;
+			s.push(val);
+		}
+		else if(isdigit(postfix[i]))
+		{
+			val=(int(postfix[i])-48);
 			s.push(val);
 		}
 		else
@@ -274,7 +263,7 @@ void postfixeval()
 }
 
 
-int priority(char ch)
+int Expression::priority(char ch)
 {
 	if (ch == '^' || ch == '$')
 		return 6;
@@ -291,7 +280,7 @@ int priority(char ch)
 	return 0;
 }
 
-void strrev(char prefix[])
+void Expression::strrev(char prefix[])
 {
 	Stack<char> s;
 	int i;
@@ -300,5 +289,48 @@ void strrev(char prefix[])
 	for(i=0;i<strlen(prefix);i++)
 		prefix[i]=s.pop();
 	prefix[i]='\0';
+}
+
+
+
+
+int main()
+{
+	Expression e;
+	Stack<char> s;
+	int choice,result;
+
+	while(1)
+	{
+		cout<<"\nConversion and Evaluation of Expressions"<<endl;
+		cout<<"1. Conversion of infix expression to prefix expression"<<endl;
+		cout<<"2. Conversion of infix expression to postfix expression"<<endl;
+		cout<<"3. Evaluation of prefix expression"<<endl;
+		cout<<"4. Evaluation of postfix expression"<<endl;
+		cout<<"5. Exit program"<<endl;
+		cout<<"\nEnter your choice:- ";
+		cin>>choice;
+
+		switch(choice)
+		{
+			case 1:
+				e.prefixconv();
+				break;
+			case 2:
+				e.postfixconv();
+				break;
+			case 3:
+				e.prefixeval();
+				break;
+			case 4:
+				e.postfixeval();
+				break;
+			case 5:
+				return 0;
+			default:
+				cout<<"\nError in choice, try again"<<endl;
+		}
+	}
+	return 0;
 }
 
