@@ -1,74 +1,66 @@
-/* An eg of DESC Priority Queue */
-#include <stdio.h>
-#include <conio.h>
-#define SIZE 5
+#include<iostream>
+#include "Queue.cpp"
+#define SIZE 60
+using namespace std;
 
-struct queue
+
+class Patient
 {
-	int data;
-	int flag;
+	Queue q;
+	
+	public:
+		void enter();
+		void remove();
+		void list();
 };
 
-int front, rear;   /* global decln */
-
-/* fn decls */
-void init_q();
-void addq(struct queue [],int);
-int delq(struct queue []);
-void displayq(struct queue []);
-int isqempty();
-int isqfull();
-
-void main()
+void Patient::enter()
 {
-	struct queue q[SIZE];
-	int choice, no;
-	init_q();
-	while (1)
+	q.addq();
+}
+
+void Patient::remove()
+{
+	q.delq();
+}
+
+void Patient::list()
+{
+	q.displayq();
+}
+
+
+int main()
+{
+	int choice;
+	Patient p;
+	
+	while(1)
 	{
-		clrscr();
-		printf("Primitive Operations on Priority Queue\n\n");
-		printf("1. Add to Queue\n");
-		printf("2. Delete from Queue\n");
-		printf("3. Display Queue\n");
-		printf("4. Exit\n");
-		printf("Enter your choice :- ");
-		scanf("%d",&choice);
-		switch (choice)
+		cout<<"\nHospital Management System"<<endl;
+		cout<<"1. Enter patient details"<<endl;
+		cout<<"2. Allocate patient for treatment"<<endl;
+		cout<<"3. List all the patients"<<endl;
+		cout<<"4. Exit the program"<<endl;
+		cout<<"\nEnter your choice:- ";
+		cin>>choice;
+		
+		switch(choice)
 		{
 			case 1:
-				if (isqfull())
-					printf("Priority Queue is Full");
-				else
-				{
-					printf("Enter the no :- ");
-					scanf("%d",&no);
-					addq(q,no);
-				}
+				p.enter();
+				cout<<"Details of patient entered successfully"<<endl;
 				break;
-
 			case 2:
-				if (isqempty())
-					printf("Priority Queue is Empty");
-				else
-					printf("Element deleted is %d",delq(q));
-
+				p.remove();
 				break;
-
 			case 3:
-				if (isqempty())
-					printf("Priority Queue is Empty");
-				else
-					displayq(q);
-
+				p.list();
 				break;
-
 			case 4:
-				exit();
-
+				return 0;
 			default:
-				printf("Error in choice. Try again");
+				cout<<"Error in choice, try again"<<endl;
 		}
-		getch();
 	}
 }

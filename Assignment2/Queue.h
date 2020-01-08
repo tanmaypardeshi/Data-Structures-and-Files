@@ -1,10 +1,19 @@
+#define SIZE 60
 class Queue
 {
-	LinkedList *front,*rear;
+	struct Node
+	{
+		char name[SIZE];
+		int age;
+		int priority;
+		Node *next;
+	};
+	Node *front,*rear;
 	
 	public:
-		void enqueue();
-		void delqueue();
-		void display();
+		Queue();
+		void addq();
+		void delq();
+		void displayq();
 		int isempty();
 };

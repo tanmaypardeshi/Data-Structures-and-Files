@@ -182,7 +182,7 @@ void Expression:: prefixeval()
 		}
 		if(isdigit(prefix[i]))
 		{
-			vals[j]=(int(prefix[j])-48);
+			vals[j]=((int)prefix[j]-48);
 			j++;
 		}
 	}

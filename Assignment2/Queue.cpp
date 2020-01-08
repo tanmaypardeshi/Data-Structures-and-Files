@@ -1,61 +1,82 @@
 #include<iostream>
 #include "Queue.h"
+#define SIZE 60
 using namespace std;
 
 
 Queue::Queue()
 {
-	front = NULL;
-	rear = NULL;
+	front = rear = NULL;
 }
 
-void enqueue(int data)
+void Queue::addq()
 {
-	rear.insert();
+	Node *newnode=new Node;
+	Node *temp;
+	cout<<"Enter the name of the patient:- ";
+	cin.ignore();
+	cin.getline(newnode->name,SIZE);
+	cout<<"Enter the age of the patient:- ";
+	cin>>newnode->age;
+	cout<<"Priority 1:- General"<<endl;
+	cout<<"Priority 2:- Medium"<<endl;
+	cout<<"Priority 3:- Serious"<<endl;
+	cout<<"Enter the priority of the disease:- ";
+	cin>>newnode->priority;
+	newnode->next=NULL;
 	if(front==NULL)
-		front=front->next;
+	{
+		front=temp;
+		rear=temp;
+	}
+	else if(newnode->priority>front->priority)
+	{
+		newnode->next=front;
+		front=newnode;
+	}
+	else
+	{
+		temp=front;
+		while(temp!=NULL)
+		{
+			if(newnode->priority<=temp->priority)
+				temp=temp->next;
+		}
+		newnode->next=temp->next;
+		temp->next=newnode;
+	}
 }
 
 
-int delq(struct queue q[])
+void Queue::delq()
 {
-	int max;
-	Node *temp=front;
-	while(temp!=rear)
-	{
-		if (temp->flag == NULL)
-		{
-			max = temp->data;
-			break;
-		}
-		temp=temp->next;
-	}
+	Node *temp;
 	temp=front;
-	while(temp!=rear)
-	{
-		if (temp->flag == 0 && max < temp->data)
-		{
-			max = temp->data;
-		}
-		temp=temp->next;
-	}
-	temp->flag = 1;
-	return max;
+	front=front->next;
+	delete front;
+	cout<<"Details of patient:- "<<endl;
+	cout<<"Name:- "<<temp->name<<endl;
+	cout<<"Age:- "<<temp->age<<endl;
+	cout<<"Priority of disease:- "<<temp->priority<<endl;
+	return;
 }
 
 
-void display()
+void Queue::displayq()
 {
-	LinkedList *temp=front;
-	while(temp!=rear)
+	Node *temp;
+	cout<<"Name\tAge\tPriority"<<endl;
+	while(temp!=NULL)
 	{
-		if (temp->flag == 0)
-			cout<<temp->data;
+		cout<<temp->name;
+		cout<<temp->age;
+		cout<<temp->priority;
+		cout<<endl;
 		temp=temp->next;
 	}	
 }
 
-int isqempty()
+int Queue::isempty()
 {
 	if (front == NULL)
 		return 1;
