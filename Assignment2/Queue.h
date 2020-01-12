@@ -1,19 +1,29 @@
-#define SIZE 60
-class Queue
+/* 
+Assignment 2
+Name:- Tanmay Pardeshi
+Roll number:- 23260
+Batch:- H10
+*/
+
+namespace std 
 {
-	struct Node
+	template <class T>
+	struct node
 	{
-		char name[SIZE];
-		int age;
-		int priority;
-		Node *next;
+		T data;
+		node* next;
 	};
-	Node *front,*rear;
-	
-	public:
-		Queue();
-		void addq();
-		void delq();
-		void displayq();
-		int isempty();
-};
+
+	template <class T>
+	class Queue 
+	{
+		node<T> *front,*rear;
+		public:
+			Queue();
+			void addq(T);
+			void delq();
+			int isqempty();
+			void displayq();
+	};
+
+} 

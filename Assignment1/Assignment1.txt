@@ -1,0 +1,59 @@
+Conversion and Evaluation of Expressions
+1. Conversion of infix expression to prefix expression
+2. Conversion of infix expression to postfix expression
+3. Evaluation of prefix expression
+4. Evaluation of postfix expression
+5. Exit program
+
+Enter your choice:- 1
+Enter the infix expression :- (a+b)/c
+Prefix expression is /+abc
+
+Conversion and Evaluation of Expressions
+1. Conversion of infix expression to prefix expression
+2. Conversion of infix expression to postfix expression
+3. Evaluation of prefix expression
+4. Evaluation of postfix expression
+5. Exit program
+
+Enter your choice:- 2
+Enter the infix expression :- (a+b)/c
+Postfix expression is ab+c/
+
+Conversion and Evaluation of Expressions
+1. Conversion of infix expression to prefix expression
+2. Conversion of infix expression to postfix expression
+3. Evaluation of prefix expression
+4. Evaluation of postfix expression
+5. Exit program
+
+Enter your choice:- 3
+Enter the prefix expression:- /+abc
+Enter value for operand a:- 1  
+Enter value for operand b:- 2
+Enter value for operand c:- 3
+Result of evaluating expression is 1
+
+Conversion and Evaluation of Expressions
+1. Conversion of infix expression to prefix expression
+2. Conversion of infix expression to postfix expression
+3. Evaluation of prefix expression
+4. Evaluation of postfix expression
+5. Exit program
+
+Enter your choice:- 4
+Enter the postfix expression:- ab+c/
+Enter value for operand a:- 1
+Enter value for operand b:- 2
+Enter value for operand c:- 3
+Result of evaluating expression is 1
+
+Conversion and Evaluation of Expressions
+1. Conversion of infix expression to prefix expression
+2. Conversion of infix expression to postfix expression
+3. Evaluation of prefix expression
+4. Evaluation of postfix expression
+5. Exit program
+
+Enter your choice:- 5
+
