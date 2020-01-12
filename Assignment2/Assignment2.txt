@@ -1,0 +1,323 @@
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 1
+Enter Patient id:- 12
+Enter Patient Name:-  Tanmay
+Enter bloodgroup:- A+ve
+Enter mobile:- 9922704483
+
+Select by entering one of the diseases:- 
+1. Cancer
+2. Accident
+3. Heartattack
+4. Kidneystones
+5. Typhoid
+6. Cholera
+7. Dengue
+8. Malaria
+9. Other
+
+Type a disease or type other:- Cholera
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 1
+Enter Patient id:- 13
+Enter Patient Name:-  Pratik
+Enter bloodgroup:- A-ve
+Enter mobile:- 9822243286
+
+Select by entering one of the diseases:- 
+1. Cancer
+2. Accident
+3. Heartattack
+4. Kidneystones
+5. Typhoid
+6. Cholera
+7. Dengue
+8. Malaria
+9. Other
+
+Type a disease or type other:- Cancer
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 1
+Enter Patient id:- 14
+Enter Patient Name:-  Yogesh
+Enter bloodgroup:- O+ve
+Enter mobile:- 9226160904
+
+Select by entering one of the diseases:- 
+1. Cancer
+2. Accident
+3. Heartattack
+4. Kidneystones
+5. Typhoid
+6. Cholera
+7. Dengue
+8. Malaria
+9. Other
+
+Type a disease or type other:- Accident
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 1
+Enter Patient id:- 15
+Enter Patient Name:-  Rohit
+Enter bloodgroup:- AB+ve
+Enter mobile:- 9921518936
+
+Select by entering one of the diseases:- 
+1. Cancer
+2. Accident
+3. Heartattack
+4. Kidneystones
+5. Typhoid
+6. Cholera
+7. Dengue
+8. Malaria
+9. Other
+
+Type a disease or type other:- Other
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 1
+Enter Patient id:- 16
+Enter Patient Name:-  Maithili
+Enter bloodgroup:- AB-ve
+Enter mobile:- 7798649029
+
+Select by entering one of the diseases:- 
+1. Cancer
+2. Accident
+3. Heartattack
+4. Kidneystones
+5. Typhoid
+6. Cholera
+7. Dengue
+8. Malaria
+9. Other
+
+Type a disease or type other:- Typhoid
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 3
+
+
+--------------------------------------------------------------------------------------
+ Sr.No.      ID      Name      Illness       Blood Group      Contact Number
+--------------------------------------------------------------------------------------
+    1        12      Tanmay      Cholera       A+ve        9922704483
+    2        13      Pratik       Cancer       A-ve        9822243286
+    3        14      Yogesh     Accident       O+ve        9226160904
+    4        15       Rohit        Other      AB+ve        9921518936
+    5        16    Maithili      Typhoid      AB-ve        7798649029
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 2
+
+
+Patient Served
+Patient Details:-
+NAME:- Pratik
+ID:- 13
+BLOOD GROUP:- A-ve
+ILLNESS:- Cancer
+
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 3
+
+
+--------------------------------------------------------------------------------------
+ Sr.No.      ID      Name      Illness       Blood Group      Contact Number
+--------------------------------------------------------------------------------------
+    1        12      Tanmay      Cholera       A+ve        9922704483
+    2        14      Yogesh     Accident       O+ve        9226160904
+    3        15       Rohit        Other      AB+ve        9921518936
+    4        16    Maithili      Typhoid      AB-ve        7798649029
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 2
+
+
+Patient Served
+Patient Details:-
+NAME:- Yogesh
+ID:- 14
+BLOOD GROUP:- O+ve
+ILLNESS:- Accident
+
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 3
+
+
+--------------------------------------------------------------------------------------
+ Sr.No.      ID      Name      Illness       Blood Group      Contact Number
+--------------------------------------------------------------------------------------
+    1        12      Tanmay      Cholera       A+ve        9922704483
+    2        15       Rohit        Other      AB+ve        9921518936
+    3        16    Maithili      Typhoid      AB-ve        7798649029
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 2
+
+
+Patient Served
+Patient Details:-
+NAME:- Tanmay
+ID:- 12
+BLOOD GROUP:- A+ve
+ILLNESS:- Cholera
+
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 3
+
+
+--------------------------------------------------------------------------------------
+ Sr.No.      ID      Name      Illness       Blood Group      Contact Number
+--------------------------------------------------------------------------------------
+    1        15       Rohit        Other      AB+ve        9921518936
+    2        16    Maithili      Typhoid      AB-ve        7798649029
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 2
+
+
+Patient Served
+Patient Details:-
+NAME:- Maithili
+ID:- 16
+BLOOD GROUP:- AB-ve
+ILLNESS:- Typhoid
+
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 3
+
+
+--------------------------------------------------------------------------------------
+ Sr.No.      ID      Name      Illness       Blood Group      Contact Number
+--------------------------------------------------------------------------------------
+    1        15       Rohit        Other      AB+ve        9921518936
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 2
+
+
+Patient Served
+Patient Details:-
+NAME:- Rohit
+ID:- 15
+BLOOD GROUP:- AB+ve
+ILLNESS:- Other
+
+
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 3
+Queue is empty!
+Please add patients in queue first
+
+Hosptial management system
+1. Add a record for patient
+2. Serve a patient
+3. Display the patients
+4. Exit program
+
+Enter your choice:- 4
+

@@ -182,7 +182,7 @@ void Expression:: prefixeval()
 		}
 		if(isdigit(prefix[i]))
 		{
-			vals[j]=((int)prefix[j]-48);
+			vals[j]=((int)prefix[i]-48);
 			j++;
 		}
 	}
@@ -194,7 +194,7 @@ void Expression:: prefixeval()
 			s.push(vals[j]);
 			j--;
 		}
-		else if(isdigit(vals[j]))
+		else if(isdigit(prefix[i]))
 		{
 			s.push(vals[j]);
 			j--;
