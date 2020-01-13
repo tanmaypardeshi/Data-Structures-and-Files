@@ -5,25 +5,21 @@ Roll number:- 23260
 Batch:- H10
 */
 
-namespace std 
+template <class T>
+struct node
 {
-	template <class T>
-	struct node
-	{
-		T data;
-		node* next;
-	};
+	T data;
+	node* next;
+};
 
-	template <class T>
-	class Queue 
-	{
-		node<T> *front,*rear;
-		public:
-			Queue();
-			void addq(T);
-			void delq();
-			int isqempty();
-			void displayq();
-	};
-
-} 
+template <class T>
+class Queue 
+{
+	node<T> *front,*rear;
+	public:
+		Queue();
+		void addq(T);
+		void delq();
+		int isqempty();
+		void displayq();
+}; 
