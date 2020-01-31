@@ -23,7 +23,7 @@ class BinaryTree
 	
 	public:
 		BinaryTree();
-		bool isempty();
+		int isempty();
 		void create(int);
 		void insert();
 		Node *search();
@@ -40,30 +40,27 @@ class BinaryTree
 BinaryTree::BinaryTree()
 {
 	root=NULL;
-	depthl=depthr=0;
-	newroot=NULL;
 }
 
-
-bool isempty()
+int BinaryTree::isempty()
 {
 	if(root==NULL)
-		return true;
-	return false;
+		return 1;
+	return 0;
 }
 
-void create(int data)
+void BinaryTree::create(int data)
 {
 	if(root==NULL)
 	{
-	root=new Node();
-	root->left=NULL;
-	root->right=NULL;
-	root->data=data;
+		root=new Node();
+		root->left=NULL;
+		root->right=NULL;
+		root->data=data;
 	}
 }
 
-void insert(int data,int key)
+void BinaryTree::insert(int data,int key)
 {
 	char ch;
 	if(root!=NULL)
@@ -86,10 +83,10 @@ void insert(int data,int key)
 				cout<<"Location Full";
 		}
 		else
-			cout<<"key doesnt exist";
+			cout<<"Key does not exist";
 	}
 }
-Node *search(Node *root,T key)
+Node* BinaryTree::search(Node *root,T key)
 {
 	if(root!=NULL)
 	{
@@ -110,7 +107,7 @@ Node *search(Node *root,T key)
 }
 
 
-void preorder(Node *root)
+void BinaryTree::preorder(Node *root)
 {
 	if(root!=NULL)
 	{
@@ -120,7 +117,7 @@ void preorder(Node *root)
 	}
 }
 
-void postorder(Node *root)
+void BinaryTree::postorder(Node *root)
 {
 	if(root!=NULL)
 	{
@@ -130,7 +127,7 @@ void postorder(Node *root)
 	}
 }
 
-void inorder(Node *root)
+void BinaryTree::inorder(Node *root)
 {
 	if(root!=NULL)
 	{
@@ -140,7 +137,7 @@ void inorder(Node *root)
 	}
 }
 
-void display()
+void BinaryTree::display()
 {
 	int choice;
 	while(1)
@@ -172,7 +169,7 @@ void display()
 	}
 
 
-int depth(Node *root)
+int BinaryTree::depth(Node *root)
 {
 	if(root==NULL)
 	{
@@ -181,7 +178,7 @@ int depth(Node *root)
 	return max(depth(root->left),depth(root->right))+1;
 }
 
-void leaf(Node *root)
+void BinaryTree::leaf(Node *root)
 {
 	if(root!=NULL)
 	{
@@ -195,13 +192,13 @@ void leaf(Node *root)
 	}  
 }
 
-void display_leaf()
+void BinaryTree::display_leaf()
 {
 	cout<<"\nLeaf Nodes are:";
 	leaf(root);
 }
 
-Node* copytree(Node *root,Node *newroot)
+BinaryTree BinaryTree::copytree(Node *root,Node *newroot)
 {
 	if(root==NULL)
 		return NULL;
@@ -219,9 +216,15 @@ Node* copytree(Node *root,Node *newroot)
 
 int main()
 {
-	BinaryTree b;
-	int a,key;
+	BinaryTree b,copy;
+	int data,key;
 	int choice;
+	
+	cout<<"\nEnter data for root element of tree:- \n";
+	cin>>data;
+	b.create(data);
+	cout<<"\nTree created successfully";
+	
 	while(1)
 	{
 		cout<<"\n\nBinary Tree Operations"<<endl;
@@ -237,35 +240,44 @@ int main()
 		switch(choice)
 		{
 			case 1:
-				cout<<"\nEnter element of tree:\n";
-				cin>>a;
-				b.create(a);
-				cout<<"\nTree created successfully";
-				break;
-			case 2:
-				if(!b.isempty())
+				if(b.isempty())
+					cout<<"\nFirst create tree";
+				else
 				{
-					cout<<"\nEnter the element to be inserted in tree:";
-					cin>>a;
+					cout<<"\nEnter the data to be inserted in tree:";
+					cin>>data;
 					cout<<"\nEnter key value to insert:";
 					cin>>key;
-					b.insert(a,key);
+					b.insert(data,key);
 					cout<<"\nNew element inserted successfully";
-				}                 
-				else
-					cout<<"\nFirst create tree";
+				}                 		
 				break;
 			case 3:
-				b.display();
+				if(b.isempty())
+					cout<<"\nFirst create tree";
+				else
+					b.display();
 				break;                              
 			case 4:
-				b.depth();
+				if(b.isempty())
+					cout<<"\nFirst create tree";
+				else
+					b.depth();
 				break;
 			case 5:
-				b.display_leaf();
+				if(b.isempty())
+					cout<<"\nFirst create tree";
+				else			
+					b.display_leaf();
 				break; 
 			case 6:
-				b.copytreecall(); 
+				if(b.isempty())
+					cout<<"\nFirst create tree";
+				else
+				{
+					copy=b.copytree(); 
+					cout<<"Tree copied successfully"<<endl;
+				}
 				break;                 	
 		}
 	}
