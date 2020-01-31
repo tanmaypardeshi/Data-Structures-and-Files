@@ -25,17 +25,17 @@ class BinaryTree
 		BinaryTree();
 		int isempty();
 		void create(int);
-		void insert();
-		Node *search();
-		void preorder();
-		void inorder();
-		void postorder();
+		void insert(int,int);
+		Node *search(Node *,int);
+		void preorder(Node *);
+		void inorder(Node *);
+		void postorder(Node *);
 		void display();
-		int depth();
-		void leaf();
+		//int depth(Node *);
+		void leaf(Node *);
 		void display_leaf();
-		void copytree();
-}
+		//BinaryTree copytree(Node *,Node *);
+};
 
 BinaryTree::BinaryTree()
 {
@@ -86,7 +86,7 @@ void BinaryTree::insert(int data,int key)
 			cout<<"Key does not exist";
 	}
 }
-Node* BinaryTree::search(Node *root,T key)
+Node* BinaryTree::search(Node *root,int key)
 {
 	if(root!=NULL)
 	{
@@ -167,8 +167,8 @@ void BinaryTree::display()
 		}
 
 	}
-
-
+}
+/*
 int BinaryTree::depth(Node *root)
 {
 	if(root==NULL)
@@ -176,7 +176,7 @@ int BinaryTree::depth(Node *root)
 		return 0;	
 	}
 	return max(depth(root->left),depth(root->right))+1;
-}
+}*/
 
 void BinaryTree::leaf(Node *root)
 {
@@ -197,30 +197,25 @@ void BinaryTree::display_leaf()
 	cout<<"\nLeaf Nodes are:";
 	leaf(root);
 }
-
+/*
 BinaryTree BinaryTree::copytree(Node *root,Node *newroot)
 {
-	if(root==NULL)
-		return NULL;
-	else
-	{
-		Node *tempa=new Node;
-		Node *tempb=new Node;
-		newroot=new Node;	
-		newroot->data=root->data;
-		newroot->left=copytree(root->left,tempa);
-		newroot->right=copytree(root->right,tempb);
-	}	
+	Node *tempa=new Node();
+	Node *tempb=new Node();
+	newroot=new Node;	
+	newroot->data=root->data;
+	newroot->left=copytree(root->left,tempa);
+	newroot->right=copytree(root->right,tempb);
 	return newroot;
-}
+}*/
 
 int main()
 {
-	BinaryTree b,copy;
-	int data,key;
+	BinaryTree b;
+	int data,key,depth;
 	int choice;
 	
-	cout<<"\nEnter data for root element of tree:- \n";
+	cout<<"\nEnter data for root element of tree:- ";
 	cin>>data;
 	b.create(data);
 	cout<<"\nTree created successfully";
@@ -258,12 +253,12 @@ int main()
 				else
 					b.display();
 				break;                              
-			case 4:
+			/*case 4:
 				if(b.isempty())
 					cout<<"\nFirst create tree";
 				else
-					b.depth();
-				break;
+					depth=b.depth();
+				break;*/
 			case 5:
 				if(b.isempty())
 					cout<<"\nFirst create tree";
@@ -271,14 +266,10 @@ int main()
 					b.display_leaf();
 				break; 
 			case 6:
-				if(b.isempty())
-					cout<<"\nFirst create tree";
-				else
-				{
-					copy=b.copytree(); 
-					cout<<"Tree copied successfully"<<endl;
-				}
-				break;                 	
+			case 7:
+				return 0;
+			default:
+				cout<<"Error in choice, try again\n"<<endl;
 		}
 	}
 	return 0;
