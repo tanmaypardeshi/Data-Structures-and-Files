@@ -65,6 +65,7 @@ Node* BinaryTree::insert()
 	cin>>choice;
 	if(choice == 'y' || choice=='Y')
 		temp->left=insert();
+	
 	cout<<"Do you want to add a right child of "<<temp->data<<" (y/n):- ";
 	cin>>choice;
 	if(choice=='y' || choice=='Y')
@@ -94,15 +95,15 @@ void BinaryTree::display(Node *temp)
 int BinaryTree::depth(Node *temp)
 {
 	int depthLeft,depthRight;
-	if(!isempty())
-	{
-		if(temp == NULL)
-			return -1;
 	
-		return max(depthLeft,depthRight)+1;
-	}
-	else
-		cout<<"Tree is empty"<<endl;
+	if(temp == NULL)
+		return -1;
+		
+	depthLeft = depth(temp->left);
+	depthRight = depth(temp->right);
+
+	return max(depthLeft,depthRight)+1;
+
 }
 
 void BinaryTree::displayleaf(Node *temp)
