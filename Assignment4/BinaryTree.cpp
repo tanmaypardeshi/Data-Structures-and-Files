@@ -50,11 +50,12 @@ Node* BinaryTree::insert()
 	stack<Node *> s;
 	char postfix[50];
 	int i=0;
+	t1 = new Node;
+	t2 = new Node;
 
 	cout<<"Enter a postfix expression:- ";
 	cin>>postfix;
-	cout<<"Testing2";
-
+	
 	while(postfix[i]!='\0')
 	{
 		if(isalnum(postfix[i]))
@@ -77,6 +78,7 @@ Node* BinaryTree::insert()
 			temp->right = t2;
 			s.push(temp);
 		}
+		i++;
 	}
 	temp = s.top();
 	s.pop();

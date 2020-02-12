@@ -1,6 +1,6 @@
 struct Node
 {
-	int data;
+	char data;
 	Node *left,*right;
 };
 
