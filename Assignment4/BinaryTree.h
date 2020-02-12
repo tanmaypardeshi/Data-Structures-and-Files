@@ -9,15 +9,14 @@ class BinaryTree
 	Node *root;
 
 	public:
-		void BinaryTree();
+		BinaryTree();
 		int isempty();
-		void create(char []);
+		int validate(char []);
+		Node* getroot();
+		Node* insert();
+		void create();
 		void inorder(Node *);
 		void preorder(Node *);
 		void postorder(Node *);
-		//void inorderrec(Node *);
-		//void preorder(Node *);
-		//void postorder(Node *);
-
 };
 
