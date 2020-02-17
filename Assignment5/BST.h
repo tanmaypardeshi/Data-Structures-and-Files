@@ -16,7 +16,8 @@ class BST
 		int search();
 		void mirror(Node *);
 		void display();
-		//void displaylevelwise();
+		void displaylevelwise();
+		~BST();
 };
 
 

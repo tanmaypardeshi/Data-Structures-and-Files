@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queue>
 #include "BST.h"
 using namespace std;
 
@@ -186,4 +187,44 @@ void BST::display()
 		dispaly(root->right);
 	}
 }
+
+void BST::displaylevelwise()
+{
+	queue<Node *> q;
+	Node *current,*temp=root;
 	
+	if(temp==NULL)
+	{
+		cout<<"BST is empty!"<<endl;
+		return;
+	}
+	q.push(temp);
+	q.push(NULL);
+	
+	
+	while(!q.empty())
+	{
+		current = q.front();
+		q.pop();
+		
+		if(current==NULL)
+		{
+			q.push(NULL);
+			cout<<endl;
+		}	
+		else
+		{
+			if(current->left)
+				q.push(current->left);
+			if(curr->right)
+				q.push(current->right);
+			
+			cout<<current->data;
+		}
+	}
+}
+
+BST::~BST()
+{
+	delete root;
+}
