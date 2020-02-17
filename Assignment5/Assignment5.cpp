@@ -1,57 +1,256 @@
 #include<iostream>
-#include "BST.cpp"
+#include<queue>
+#include "BST.h"
 using namespace std;
 
-class Operations
+struct Node
 {
-	BST b;
+	int data;
+	Node *left,*right;
+};
+
+class BST
+{
+	Node *root;
 	
 	public:
+		BST();
+		Node* getroot();
 		void insert();
 		void deletenode();
 		void search();
-		void mirror();
-		void display();
-		void displaylevelwise();
+		void mirror(Node *);
+		void display(Node *);
+		void displaylevelwise(Node *);
 };
 
-void Operations::insert()
+
+BST::BST()
 {
-	b.insert();
+	root=NULL;
+	root->left=NULL;
+	root->right=NULL;
 }
 
-void Operations::deletenode()
+Node* BST::getroot()
 {
-	b.deletenode();
+	return root;
 }
 
-void Operations::search()
+void BST::insert()
 {
-	B.search();
+	Node *temp,*newnode;
+	char ask='y';
+	
+	while(ask=='y' || ask=='Y')
+	{
+		if(root==NULL)
+			cout<<"Enter data for root:- ";
+		else
+			cout<<"Enter data for newnode:- ";
+		newnode = new Node;
+		cin>>newnode->data;
+		newnode->left = newnode->right=NULL;
+		
+		if(root==NULL)
+			root=newnode;
+		else
+		{
+			temp=root;
+			while(1)
+			{
+				if(newnode->data < temp->data)
+				{
+					if(temp->left==NULL)
+					{
+						temp->left=newnode;
+						break;
+					}
+					else
+						temp=temp->left;
+				}
+				else	//newnode->data > temp->data
+				{
+					if(temp->right==NULL)
+					{
+						temp->right=newnode;
+						break;
+					}
+					else
+						temp=temp->right;
+				}
+			}
+		}
+		cout<<"Do you want to add more node(y/n):- ";
+		cin>>ask;
+	}
 }
 
-void Operations:mirror()
+void BST::deletenode()
 {
-	b.mirror(b.getnode());
-	b.display();
+	int data;
+	Node *temp,*parent_temp,*rn,*parent_rn,*son;
+	
+	cout<<"Enter the value of the node to be deleted:- ";
+	cin>>data;
+	
+	parent_temp=NULL;
+	temp=root;
+	
+	while(temp!=NULL)
+	{
+		if(data==temp->data)
+			break;
+		parent_temp=temp;
+		if(data<temp->data)
+			temp=temp->left;
+		else
+			temp=temp->right;
+	}
+	if(temp==NULL)
+	{
+		cout<<"Node with data "<<data<<" not found"<<endl;
+		return;
+	}
+	if(temp->left==NULL)
+		rn=temp->right;
+	else
+	{
+		if(temp->right==NULL)
+			rn=temp->right;
+		else
+		{
+			parent_rn = temp;
+			rn = parent_rn->right;
+			son = rn->left;
+			
+			while(son!=NULL)
+			{
+				parent_rn=rn;
+				rn=son;
+				son=son->left;
+			}
+			if(parent_rn!=temp)
+			{
+				parent_rn->left=rn->right;
+				rn->right=temp->right;
+			}
+			rn->left=temp->left;
+		}
+		//if node to be deleted is root node
+		if(parent_temp==NULL)
+			root=rn;
+		else
+		{
+			//node to delete is parent's left child
+			if(temp==parent_temp->left)
+				parent_temp->left=rn;
+			else
+				parent_temp->right=rn;
+		}
+	}
+	delete temp;
+	cout<<"Node with data:- "<<data<<" has been deleted"<<endl;
 }
 
-void Operations::display()
+
+void BST::search()
 {
-	b.display();
+	int data;
+	Node *temp;
+	
+	cout<<"Enter data to be searched:- ";
+	cin>>data;
+	
+	temp=root;
+	
+	while(temp!=NULL)
+	{
+		if(data==temp->data)
+			break;
+		if(data<temp->data)
+			temp=temp->left;
+		else
+			temp=temp->right;
+	}
+	if(temp==NULL)
+		cout<<"Data:- "<<data<<" not found in the BST"<<endl;
+	else
+		cout<<"Data:- "<<data<<" found in the BST"<<endl;
 }
 
-void Operations::displaylevelwise()
+
+void BST::mirror(Node *r)
 {
-	b.displaylevelwise();
+	Node* temp;
+	
+	if(root!=NULL)
+	{
+		temp=r->left;
+		r->left=r->right;
+		r->right=temp;
+		
+		mirror(r->left);
+		mirror(r->right);
+	}
+	else
+		return;
+}
+	
+
+void BST::display(Node *root)
+{
+	if(root==NULL)
+		return;
+	else
+	{
+		display(root->left);
+		cout<<" "<<root->data<<" ";
+		display(root->right);
+	}
+}
+
+void BST::displaylevelwise(Node *root)
+{
+	queue<Node *> q;
+	Node *current,*temp=root;
+	
+	if(temp==NULL)
+	{
+		cout<<"BST is empty!"<<endl;
+		return;
+	}
+	q.push(temp);
+	q.push(NULL);
+	
+	
+	while(!q.empty())
+	{
+		current = q.front();
+		q.pop();
+		
+		if(current==NULL)
+		{
+			q.push(NULL);
+			cout<<endl;
+		}	
+		else
+		{
+			if(current->left)
+				q.push(current->left);
+			if(current->right)
+				q.push(current->right);
+			
+			cout<<current->data;
+		}
+	}
 }
 
 
 int main()
 {
 	int choice;
-	Operaions o;
-	
+	BST b;	
 	while(1)
 	{
 		cout<<"\nBST Operations"<<endl;
@@ -68,22 +267,22 @@ int main()
 		switch(choice)
 		{
 			case 1:
-				o.insert();
+				b.create();
 				break;
 			case 2:
-				o.deletenode();
+				b.deletenode();
 				break;
 			case 3:
-				o.search();
+				b.search();
 				break;
 			case 4:
-				o.mirror();
+				b.mirror(b.getroot);
 				break;
 			case 5:
-				o.display();
+				b.display(b.getroot());
 				break;
 			case 6:
-				o.displaylevelwise();
+				b.displaylevelwise(b.getroot());
 				break;
 			case 7:
 				return 0;
@@ -91,4 +290,5 @@ int main()
 				cout<<"\nError in choice, try again\n"<<endl;
 		}
 	}
+	return 0;
 }
