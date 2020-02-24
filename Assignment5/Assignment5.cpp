@@ -92,7 +92,6 @@ Node* BST::deletenode(Node* t,int data)
 
 	if(t == NULL)
 	{
-		cout<<"\nElement not found!";
 		return t;
 	}
 	else if(data < t->data)
@@ -140,7 +139,6 @@ Node* BST::deletenode(Node* t,int data)
 		return t;
 	}
 	return NULL;
-	
 }
 
 
@@ -286,8 +284,6 @@ int main()
 				cout<<"Enter data to delete:- ";
 				int data;
 				cin>>data;
-				else
-					cout<<"Element "<<data<<" deleted"<<endl;					
 				break;
 			
 			case 3:
@@ -313,7 +309,7 @@ int main()
 				break;
 			
 			case 6:
-				cout<<"\nLevel order display of tree is:- \n";
+				cout<<"\nLevel order display of tree is:- ";
 				b.displaylevelwise();
 				break;
 			
