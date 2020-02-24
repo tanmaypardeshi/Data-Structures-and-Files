@@ -1,6 +1,6 @@
 #include<iostream>
 #include<queue>
-#include "BST.h"
+#include<math.h>
 using namespace std;
 
 struct Node
@@ -16,20 +16,20 @@ class BST
 	public:
 		BST();
 		Node* getroot();
+		Node* getmirror();
 		void insert();
-		void deletenode();
+		Node* deletenode(Node*,int);
 		void search();
 		void mirror(Node *);
 		void display(Node *);
-		void displaylevelwise(Node *);
+		void displaylevelwise();
+		int getheight(Node *);
 };
 
 
 BST::BST()
 {
 	root=NULL;
-	root->left=NULL;
-	root->right=NULL;
 }
 
 Node* BST::getroot()
@@ -86,71 +86,61 @@ void BST::insert()
 	}
 }
 
-void BST::deletenode()
+Node* BST::deletenode(Node* t,int data)
 {
-	int data;
-	Node *temp,*parent_temp,*rn,*parent_rn,*son;
-	
-	cout<<"Enter the value of the node to be deleted:- ";
-	cin>>data;
-	
-	parent_temp=NULL;
-	temp=root;
-	
-	while(temp!=NULL)
+	Node *temp;
+
+	if(t == NULL)
 	{
-		if(data==temp->data)
-			break;
-		parent_temp=temp;
-		if(data<temp->data)
-			temp=temp->left;
-		else
-			temp=temp->right;
+		cout<<"\nElement not found!";
+		return t;
 	}
-	if(temp==NULL)
+	else if(data < t->data)
 	{
-		cout<<"Node with data "<<data<<" not found"<<endl;
-		return;
+		t->left = deletenode(t->left, data);
+		return t;
 	}
-	if(temp->left==NULL)
-		rn=temp->right;
+	else if(data > t->data)
+	{
+		t->right = deletenode(t->right, data);
+		return t;
+	}
 	else
 	{
-		if(temp->right==NULL)
-			rn=temp->right;
-		else
+	   
+		if(t->left == NULL && t->right == NULL)
 		{
-			parent_rn = temp;
-			rn = parent_rn->right;
-			son = rn->left;
-			
-			while(son!=NULL)
-			{
-				parent_rn=rn;
-				rn=son;
-				son=son->left;
-			}
-			if(parent_rn!=temp)
-			{
-				parent_rn->left=rn->right;
-				rn->right=temp->right;
-			}
-			rn->left=temp->left;
+			temp = t;
+			delete temp;
+			return NULL;
 		}
-		//if node to be deleted is root node
-		if(parent_temp==NULL)
-			root=rn;
-		else
+
+		if(t->left == NULL)
 		{
-			//node to delete is parent's left child
-			if(temp==parent_temp->left)
-				parent_temp->left=rn;
-			else
-				parent_temp->right=rn;
+			temp = t;
+			t = t->right;
+			delete temp;
+			return t;
 		}
+		if(t->right == NULL)
+		{
+			temp = t;
+			t = t->left;
+			delete temp;
+			return t;
+		}
+		
+		temp = t->right;
+		
+		while(temp->left != NULL)
+			temp = temp->left;
+		
+		t->data = temp->data;
+		t->right = deletenode(t->right, temp->data);
+		return t;
 	}
-	delete temp;
-	cout<<"Node with data:- "<<data<<" has been deleted"<<endl;
+	return NULL;
+	
 }
 
 
@@ -159,6 +149,11 @@ void BST::search()
 	int data;
 	Node *temp;
 	
+	if(root==NULL)
+	{
+		cout<<"\nCreate a tree first"<<endl;
+		return;
+	}
 	cout<<"Enter data to be searched:- ";
 	cin>>data;
 	
@@ -174,9 +169,9 @@ void BST::search()
 			temp=temp->right;
 	}
 	if(temp==NULL)
-		cout<<"Data:- "<<data<<" not found in the BST"<<endl;
+		cout<<data<<" not found in the BST"<<endl;
 	else
-		cout<<"Data:- "<<data<<" found in the BST"<<endl;
+		cout<<data<<" found in the BST"<<endl;
 }
 
 
@@ -184,7 +179,7 @@ void BST::mirror(Node *r)
 {
 	Node* temp;
 	
-	if(root!=NULL)
+	if(r!=NULL)
 	{
 		temp=r->left;
 		r->left=r->right;
@@ -196,11 +191,10 @@ void BST::mirror(Node *r)
 	else
 		return;
 }
-	
-
+		
 void BST::display(Node *root)
 {
-	if(root==NULL)
+	if(root == NULL)
 		return;
 	else
 	{
@@ -208,23 +202,25 @@ void BST::display(Node *root)
 		cout<<" "<<root->data<<" ";
 		display(root->right);
 	}
+
 }
 
-void BST::displaylevelwise(Node *root)
+void BST::displaylevelwise()
 {
 	queue<Node *> q;
-	Node *current,*temp=root;
+	Node *current;
+	Node *temp=root;
 	
 	if(temp==NULL)
 	{
-		cout<<"BST is empty!"<<endl;
+		cout<<"\nCreate a tree first"<<endl;
 		return;
 	}
 	q.push(temp);
 	q.push(NULL);
 	
 	
-	while(!q.empty())
+	while(q.size()>1)
 	{
 		current = q.front();
 		q.pop();
@@ -241,10 +237,25 @@ void BST::displaylevelwise(Node *root)
 			if(current->right)
 				q.push(current->right);
 			
-			cout<<current->data;
+			cout<<current->data<<"  ";
 		}
 	}
 }
+
+int BST::getheight(Node* t)
+{
+	int left=0,right=0;
+	if(t==NULL)
+		return -1;
+	else
+	{
+		left=getheight(t->left);
+		right=getheight(t->right);
+	}
+	return max(left,right)+1;
+}
+	
+		
 
 
 int main()
@@ -260,32 +271,59 @@ int main()
 		cout<<"4. Mirror tree"<<endl;
 		cout<<"5. Display tree"<<endl;
 		cout<<"6. Level wise display tree"<<endl;
-		cout<<"7. Exit program"<<endl;
+		cout<<"7. Height of tree"<<endl;
+		cout<<"8. Exit program"<<endl;
 		cout<<"\nEnter your choice:- ";
 		cin>>choice;
 		
 		switch(choice)
 		{
 			case 1:
-				b.create();
+				b.insert();
 				break;
+			
 			case 2:
-				b.deletenode();
+				cout<<"Enter data to delete:- ";
+				int data;
+				cin>>data;
+				else
+					cout<<"Element "<<data<<" deleted"<<endl;					
 				break;
+			
 			case 3:
 				b.search();
 				break;
+			
 			case 4:
-				b.mirror(b.getroot);
+				if(b.getroot()==NULL)
+				{
+					cout<<"\nCreate a tree first"<<endl;
+					break;
+				}
+				b.mirror(b.getroot());
+				cout<<"\nMirror image of tree is:- ";
+				b.display(b.getroot());
+				cout<<endl;
+				b.mirror(b.getroot());
 				break;
+			
 			case 5:
+				cout<<"\nTree is:- ";
 				b.display(b.getroot());
 				break;
+			
 			case 6:
-				b.displaylevelwise(b.getroot());
+				cout<<"\nLevel order display of tree is:- \n";
+				b.displaylevelwise();
 				break;
+			
 			case 7:
+				cout<<"Height of the given tree is "<<b.getheight(b.getroot())<<endl;
+				break;
+			
+			case 8:
 				return 0;
+			
 			default:
 				cout<<"\nError in choice, try again\n"<<endl;
 		}
