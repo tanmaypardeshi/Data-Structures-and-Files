@@ -1,0 +1,122 @@
+Operations on binary tree: 
+1. Insert element in tree
+2. Display tree with recursion
+3. Display tree without recursion
+4. Depth of the tree
+5. Display leaf Nodes
+6. Create a copy of the tree
+7. Exit
+Enter your choice: 1
+
+Enter data to be added in the tree: 5
+
+Would you like to add a left child to 5?(y/n)y
+
+Enter data to be added in the tree: 6
+
+Would you like to add a left child to 6?(y/n)n
+
+Would you like to add a right child to 6?(y/n)n
+
+Would you like to add a right child to 5?(y/n)y
+
+Enter data to be added in the tree: 7
+
+Would you like to add a left child to 7?(y/n)y
+
+Enter data to be added in the tree: 10
+
+Would you like to add a left child to 10?(y/n)y
+
+Enter data to be added in the tree: 13
+
+Would you like to add a left child to 13?(y/n)n
+
+Would you like to add a right child to 13?(y/n)n
+
+Would you like to add a right child to 10?(y/n)y
+
+Enter data to be added in the tree: 13
+
+Would you like to add a left child to 13?(y/n)n
+
+Would you like to add a right child to 13?(y/n)n
+
+Would you like to add a right child to 7?(y/n)y
+
+Enter data to be added in the tree: 9
+
+Would you like to add a left child to 9?(y/n)n
+
+Would you like to add a right child to 9?(y/n)n
+
+
+Operations on binary tree: 
+1. Insert element in tree
+2. Display tree with recursion
+3. Display tree without recursion
+4. Depth of the tree
+5. Display leaf Nodes
+6. Create a copy of the tree
+7. Exit
+Enter your choice: 2
+
+Inorder traversal of the tree is: 6 5 13 10 13 7 9 
+
+Operations on binary tree: 
+1. Insert element in tree
+2. Display tree with recursion
+3. Display tree without recursion
+4. Depth of the tree
+5. Display leaf Nodes
+6. Create a copy of the tree
+7. Exit
+Enter your choice: 3
+
+Inorder traversal of the tree without recursion is: 6 5 13 10 13 7 9 
+
+Operations on binary tree: 
+1. Insert element in tree
+2. Display tree with recursion
+3. Display tree without recursion
+4. Depth of the tree
+5. Display leaf Nodes
+6. Create a copy of the tree
+7. Exit
+Enter your choice: 4
+
+Depth of tree is: 3
+
+Operations on binary tree: 
+1. Insert element in tree
+2. Display tree with recursion
+3. Display tree without recursion
+4. Depth of the tree
+5. Display leaf Nodes
+6. Create a copy of the tree
+7. Exit
+Enter your choice: 5
+
+Leaf Nodes: 6 13 13 9 
+
+Operations on binary tree: 
+1. Insert element in tree
+2. Display tree with recursion
+3. Display tree without recursion
+4. Depth of the tree
+5. Display leaf Nodes
+6. Create a copy of the tree
+7. Exit
+Enter your choice: 6
+
+Copy of the tree: 6 5 13 10 13 7 9 
+
+Operations on binary tree: 
+1. Insert element in tree
+2. Display tree with recursion
+3. Display tree without recursion
+4. Depth of the tree
+5. Display leaf Nodes
+6. Create a copy of the tree
+7. Exit
+Enter your choice: 7

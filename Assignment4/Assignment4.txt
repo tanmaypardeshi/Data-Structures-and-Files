@@ -1,0 +1,100 @@
+Please enter the postfix string: 
+Enter postfix Expression: ab+
+
+
+Expression Tree
+Recursive Traversals: 
+1. Inorder Traversal
+2. Preorder Traversal
+3. Postorder Traversal
+Non-Recursive Traversals: 
+4. Inorder Traversal
+5. Preorder Traversal
+6. Postorder Traversal
+7. Exit the program
+Enter your choice:- 1
+
+Inorder traversal with recursion: a + b
+
+Expression Tree
+Recursive Traversals: 
+1. Inorder Traversal
+2. Preorder Traversal
+3. Postorder Traversal
+Non-Recursive Traversals: 
+4. Inorder Traversal
+5. Preorder Traversal
+6. Postorder Traversal
+7. Exit the program
+Enter your choice:- 2
+
+Preorder traversal with recursion: + a b
+
+Expression Tree
+Recursive Traversals: 
+1. Inorder Traversal
+2. Preorder Traversal
+3. Postorder Traversal
+Non-Recursive Traversals: 
+4. Inorder Traversal
+5. Preorder Traversal
+6. Postorder Traversal
+7. Exit the program
+Enter your choice:- 3
+
+Postorder traversal with recursion: a b +
+
+Expression Tree
+Recursive Traversals: 
+1. Inorder Traversal
+2. Preorder Traversal
+3. Postorder Traversal
+Non-Recursive Traversals: 
+4. Inorder Traversal
+5. Preorder Traversal
+6. Postorder Traversal
+7. Exit the program
+Enter your choice:- 4
+
+Inorder traversal without recursion: a + b
+
+Expression Tree
+Recursive Traversals: 
+1. Inorder Traversal
+2. Preorder Traversal
+3. Postorder Traversal
+Non-Recursive Traversals: 
+4. Inorder Traversal
+5. Preorder Traversal
+6. Postorder Traversal
+7. Exit the program
+Enter your choice:- 5
+
+Preorder traversal without recursion: + a b
+
+Expression Tree
+Recursive Traversals: 
+1. Inorder Traversal
+2. Preorder Traversal
+3. Postorder Traversal
+Non-Recursive Traversals: 
+4. Inorder Traversal
+5. Preorder Traversal
+6. Postorder Traversal
+7. Exit the program
+Enter your choice:- 6
+
+Postorder traversal without recursion: a b +
+
+Expression Tree
+Recursive Traversals: 
+1. Inorder Traversal
+2. Preorder Traversal
+3. Postorder Traversal
+Non-Recursive Traversals: 
+4. Inorder Traversal
+5. Preorder Traversal
+6. Postorder Traversal
+7. Exit the program
+Enter your choice:- 7
+

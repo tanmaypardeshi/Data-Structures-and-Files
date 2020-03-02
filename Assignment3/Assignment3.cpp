@@ -1,14 +1,13 @@
 /* 
-Assignment 3
+Assignment 2
 Name:- Tanmay Pardeshi
 Roll number:- 23260
 Batch:- H10
 */
 
-
-#include<iostream>
-#include<math.h>
-#include<iomanip>
+#include <iostream>
+#include <queue>
+#include <stack>
 using namespace std;
 
 struct Node
@@ -17,168 +16,199 @@ struct Node
 	Node *left,*right;
 };
 
-
-class BinaryTree
+class Binarytree
 {
-	Node *root;
-	
+	Node* root;
+
+
 	public:
-		BinaryTree();
-		int isempty();
-		Node* getroot();
-		Node* insert();
+		Binarytree();
+		Node* getNode()
+		{
+			return root; 
+		}
 		void create();
-		void display(Node *);
-		int depth(Node *);
-		void displayleaf(Node *);
-		Node* copytree(Node *);
+		Node* insert();
+		void inorder(Node*);
+		void inorderworec(Node*);
+		int depth(Node*);
+		void displayleaf(Node*);
+		void copy();
+		Node* tcopy(Node*);
 };
 
-
-BinaryTree::BinaryTree()
+Binarytree::Binarytree()
 {
-	root=NULL;
+	root = NULL;
 }
 
-int BinaryTree::isempty()
-{
-	if(root==NULL)
-		return 1;
-	return 0;
-}
-
-Node* BinaryTree::getroot()
-{
-	return root;
-}
-
-
-Node* BinaryTree::insert()
-{
-	Node *temp=new Node();
-	char choice = 'y';
-	
-	cout<<"Enter data:- ";
-	cin>>temp->data;
-	
-	cout<<"Do you want to add a left child of "<<temp->data<<" (y/n):- ";
-	cin>>choice;
-	if(choice == 'y' || choice=='Y')
-		temp->left=insert();
-	
-	cout<<"Do you want to add a right child of "<<temp->data<<" (y/n):- ";
-	cin>>choice;
-	if(choice=='y' || choice=='Y')
-		temp->right=insert();
-	
-	return temp;
-}
-
-void BinaryTree::create()
+void Binarytree::create()
 {
 	root = insert();
 }
 
-void BinaryTree::display(Node *temp)
+Node* Binarytree::insert()
 {
-	if(temp != NULL)
+	Node *temp;
+	char ch;
+
+	temp = new Node();
+
+	cout<<"\nEnter data to be added in the tree: ";
+	cin>>temp->data;
+
+	temp->left = temp->right = NULL;
+
+	cout<<"\nWould you like to add a left child to "<<temp->data<<"?(y/n)";
+	cin>>ch;
+	if(ch == 'y' || ch == 'Y')
+		temp->left = insert();
+
+	cout<<"\nWould you like to add a right child to "<<temp->data<<"?(y/n)";
+	cin>>ch;
+	if(ch == 'y' || ch == 'Y')
+		temp->right = insert();
+
+	return temp;
+}
+
+
+void Binarytree::inorder(Node *t)
+{
+    if(t!=NULL)
+    {
+        inorder(t->left);
+        cout<<t->data<<" ";
+        inorder(t->right);
+    }
+}
+
+void Binarytree::inorderworec(Node *t)
+{
+	stack<Node*> s;
+	while(t!=NULL)
 	{
-		display(temp->left);
-		cout<<setw(3)<<temp->data;
-		display(temp->right);
+		s.push(t);
+		t = t->left;
 	}
-	if(isempty())
-		cout<<"\nTree is empty."<<endl;
-}
-
-
-int BinaryTree::depth(Node *temp)
-{
-	int depthLeft,depthRight;
-	
-	if(temp == NULL)
-		return -1;
-		
-	depthLeft = depth(temp->left);
-	depthRight = depth(temp->right);
-
-	return max(depthLeft,depthRight)+1;
-
-}
-
-void BinaryTree::displayleaf(Node *temp)
-{
-	if(temp != NULL)
+	while(!s.empty())
 	{
-		displayleaf(temp->left);
-		if(temp->left == NULL && temp->right == NULL)
-			cout<<setw(3)<<temp->data;
-		displayleaf(temp->right);
+		t = s.top();
+		s.pop();
+		cout<<t->data<<" ";
+		t = t->right;
+		while(t!=NULL)
+		{
+			s.push(t);
+			t = t->left;
+		}
 	}
-	if(isempty())
-		cout<<"\nTree is empty."<<endl;
 }
 
-Node* BinaryTree::copytree(Node *root)
+int Binarytree::depth(Node *t)
 {
-	Node *temp = NULL;
-	if(root != NULL)
+	int hl, hr;
+	if(t == NULL)
+		return 0;
+	if(t->left == NULL && t->right == NULL)
+		return 0;
+	hl = depth(t->left);
+	hr = depth(t->right);
+	if(hl>hr)
+		return (hl+1);
+	return (hr+1);
+}
+
+void Binarytree::displayleaf(Node *t)
+{
+    if(!t)
+        return;
+    
+    if(!t->left && !t->right)
+    {
+        cout<<t->data<<" ";
+        return;
+    }
+    
+    if(t->left)
+        displayleaf(t->left);
+    
+    if(t->right)
+        displayleaf(t->right);
+}
+
+void Binarytree::copy()
+{
+	Node*t;
+	t = tcopy(root);
+	inorder(t);
+}
+
+Node* Binarytree::tcopy(Node* t)
+{
+	Node* p;
+	p = NULL;
+	if(t != NULL)
 	{
-		temp = new Node;
-		temp->data = root->data;
-		temp->left = copytree(root->left);
-		temp->right = copytree(root->right);
+		p = new Node;
+		p->data = t->data;
+		p->left = tcopy(t->left);
+		p->right = tcopy(t->right);
 	}
-	return temp;	
+	return p;
 }
 
 
-int main()
+int main() 
 {
+	Binarytree t;
 	int choice;
-	BinaryTree b;
-	Node* node;
-
 	while(1)
 	{
-		cout<<"\n\nBinary Tree Operations"<<endl;
-		cout<<"1. Create tree"<<endl;
-		cout<<"2. Display"<<endl;
-		cout<<"3. Find out depth of tree"<<endl;
-		cout<<"4. Display leaf nodes"<<endl;
-		cout<<"5. Create copy of tree"<<endl;
-		cout<<"6. Exit program"<<endl;
-		cout<<"\nEnter your choice:- ";
+        
+		cout<<"\n\nOperations on binary tree: ";
+		cout<<"\n1. Insert element in tree";
+		cout<<"\n2. Display tree with recursion";
+		cout<<"\n3. Display tree without recursion";
+		cout<<"\n4. Depth of the tree";
+		cout<<"\n5. Display leaf Nodes";
+		cout<<"\n6. Create a copy of the tree";
+		cout<<"\n7. Exit";
+		cout<<"\nEnter your choice: ";
 		cin>>choice;
-
 		switch(choice)
 		{
 			case 1:
-				b.create();
+				t.create();
 				break;
+			
 			case 2:
-				b.display(b.getroot());
-				break;			
-			case 3:
-				cout<<"Depth of the given tree is :- "<<b.depth(b.getroot())<<endl;
-				break;			
-			case 4:
-				b.displayleaf(b.getroot());
+				cout<<"\nInorder traversal of the tree is: ";
+				t.inorder(t.getNode());
 				break;
-			case 5:
-				node = b.copytree(b.getroot());
-				cout<<"Tree has been copied successfully"<<endl;
-				cout<<"Original tree is:- ";
-				b.display(b.getroot());
-				cout<<"\nCopied tree is:- ";
-				b.display(node);
+			
+			case 3: 
+				cout<<"\nInorder traversal of the tree without recursion is: ";
+				t.inorderworec(t.getNode());
 				break;
-			case 6:
+			
+			case 4: 
+				cout<<"\nDepth of tree is: "<<t.depth(t.getNode());
+				break;
+			
+			case 5: 
+				cout<<"\nLeaf Nodes: ";
+				t.displayleaf(t.getNode());
+				break;
+			
+			case 6: 
+				cout<<"\nCopy of the tree: ";
+				t.copy();
+				break;
+			
+			case 7: 
 				return 0;
-
-			default:
-				cout<<"\n\nError in choice,try again"<<endl;
-		}
-	}
-	return 0;
+        }
+    }
+    return 0;
 }

@@ -1,35 +1,45 @@
+/* 
+Assignment 2
+Name:- Tanmay Pardeshi
+Roll number:- 23260
+Batch:- H10
+*/
+
 #include <iostream>
 #include <stack>
 #include <queue>
 using namespace std;
 
-struct node
+struct Node
 {
     char data;
-    node *left, *right;
+    Node *left, *right;
 };
-class expression
+
+class Expression
 {
-    char prefix[20], postfix[20], infix[20];
-    node* root;
-    int top;
+	char prefix[20], postfix[20], infix[20];
+	Node* root;
+	int top;
     
-public:
-    void input(int);
-    node* getroot(){ return root; }
-    int validate(int);
-    node* create_Post();
-    void create_Pre();
-    void inorder_withRec(node*);
-    void preorder_withRec(node*);
-    void postorder_withRec(node*);
-    void inorder_withoutRec(node*);
-    void preorder_withoutRec(node*);
-    void postorder_withoutRec(node*);
+	public:
+		void input(int);
+		Node* getroot()
+		{ 
+			return root; 
+		}
+		int validate(int);
+		Node* create_Post();
+		void inorder_withRec(Node*);
+		void preorder_withRec(Node*);
+		void postorder_withRec(Node*);
+		void inorder_withoutRec(Node*);
+		void preorder_withoutRec(Node*);
+		void postorder_withoutRec(Node*);
 };
 
 
-int expression::validate(int x)
+int Expression::validate(int x)
 {
     int i = 0, opn = 0, opt = 0;
     if(x == 0)
@@ -61,45 +71,45 @@ int expression::validate(int x)
         return 1;
     }
 }
-void expression::input(int x)
+void Expression::input(int x)
 {
     if(x == 0)
     {
         while(1)
         {
-            cout<<"\nEnter prefix expression: ";
+            cout<<"\nEnter prefix Expression: ";
             cin>>prefix;
             if(validate(x))
                 break;
             else
-                cout<<"\nWrong expression. Please enter again.";
+                cout<<"\nWrong Expression. Please enter again.";
         }
     }
     else
     {
         while(1)
         {
-            cout<<"\nEnter postfix expression: ";
+            cout<<"\nEnter postfix Expression: ";
             cin>>postfix;
             if(validate(x))
                 break;
             else
-                cout<<"\nWrong expression. Please enter again.";
+                cout<<"\nWrong Expression. Please enter again.";
         }
     }
 }
 
-node* expression::create_Post()
+Node* Expression::create_Post()
 {
     int i=0;
-    node* temp, *t1, *t2;
-    stack<node*> s;
+    Node* temp, *t1, *t2;
+    stack<Node*> s;
     
     for(;postfix[i]!='\0';i++)
     {
         if(isalnum(postfix[i]))
         {
-            temp = new node;
+            temp = new Node;
             temp->data = postfix[i];
             temp->left = temp->right = NULL;
             s.push(temp);
@@ -110,7 +120,7 @@ node* expression::create_Post()
             s.pop();
             t1 = s.top();
             s.pop();
-            temp = new node;
+            temp = new Node;
             temp->data = postfix[i];
             temp->left = t1;
             temp->right = t2;
@@ -122,7 +132,7 @@ node* expression::create_Post()
     return temp;
 }
            
-void expression::inorder_withRec(node* t)
+void Expression::inorder_withRec(Node* t)
 {
     if(t!=NULL)
     {
@@ -132,7 +142,7 @@ void expression::inorder_withRec(node* t)
     }
 }
 
-void expression::preorder_withRec(node* t)
+void Expression::preorder_withRec(Node* t)
 {
     if(t!=NULL)
     {
@@ -142,7 +152,7 @@ void expression::preorder_withRec(node* t)
     }
 }
 
-void expression::postorder_withRec(node* t)
+void Expression::postorder_withRec(Node* t)
 {
     if(t!=NULL)
     {
@@ -152,10 +162,10 @@ void expression::postorder_withRec(node* t)
     }
 }
 
-void expression::inorder_withoutRec(node* t)
+void Expression::inorder_withoutRec(Node* t)
 {
-    node* temp = t;
-    stack<node*> s;
+    Node* temp = t;
+    stack<Node*> s;
     
     while(temp!=NULL)
     {
@@ -177,10 +187,10 @@ void expression::inorder_withoutRec(node* t)
     }
 }
 
-void expression::preorder_withoutRec(node* t)
+void Expression::preorder_withoutRec(Node* t)
 {
-    node* temp = t;
-    stack<node*> s;
+    Node* temp = t;
+    stack<Node*> s;
     while(temp != NULL)
     {
         cout<<" "<<temp->data;
@@ -202,10 +212,10 @@ void expression::preorder_withoutRec(node* t)
     }
 }
 
-void expression::postorder_withoutRec(node* t)
+void Expression::postorder_withoutRec(Node* t)
 {
-    node *t1, *temp = t;
-    stack<node*> s, s1;
+    Node *t1, *temp = t;
+    stack<Node*> s, s1;
     
     while(temp!=NULL)
     {
@@ -223,7 +233,7 @@ void expression::postorder_withoutRec(node* t)
         if(t1 == NULL)
         {
             s.push(temp);
-            s1.push((node*)1);
+            s1.push((Node*)1);
             temp = temp->right;
             while(temp!=NULL)
             {
@@ -234,70 +244,64 @@ void expression::postorder_withoutRec(node* t)
                 
         }
         else
-            cout<<" "<<temp->data;
-            
-    }
-    
-    
+            cout<<" "<<temp->data;       
+    }     
 }
 int main()
 {
-    int choice;
-    expression et;
-    node* t;
-    
-    cout<<"\nPlease enter the postfix string: ";
-    et.input(1);
-    t = et.create_Post();
-    
-    while(1)
-    {
-        cout<<"\n\nChoose from the following: ";
-        cout<<"\nRecursive Traversals: ";
-        cout<<"\n1. Inorder Traversal.";
-        cout<<"\n2. Preorder Traversal.";
-        cout<<"\n3. Postorder Traversal.";
-        cout<<"\nNon-Recursive Traversals: ";
-        cout<<"\n4. Inorder Traversal.";
-        cout<<"\n5. Preorder Traversal.";
-        cout<<"\n6. Postorder Traversal.";
-        cout<<"\n7. Exit.";
-        cout<<"\nEnter your choice: ";
-        cin>>choice;
-        switch(choice)
-        {
-            case 1: cout<<"\nInorder traversal with recursion:";
-                    et.inorder_withRec(t);
-                    break;
-            case 2: cout<<"\nPreorder traversal with recursion:";
-                    et.preorder_withRec(t);
-                    break;
-            case 3: cout<<"\nPostorder traversal with recursion:";
-                    et.postorder_withRec(t);
-                    break;
-            case 4: cout<<"\nInorder traversal without recursion:";
-                    et.inorder_withoutRec(t);
-                    break;
-            case 5: cout<<"\nPreorder traversal without recursion:";
-                    et.preorder_withoutRec(t);
-                    break;
-            case 6: cout<<"\nPostorder traversal without recursion:";
-                    et.postorder_withoutRec(t);
-                    break;
-            case 7: return 0;
-            default: cout<<"\nWrong choice. Please enter again.";
+	int choice;
+	Expression et;
+	Node* t;
+
+	cout<<"\nPlease enter the postfix string: ";
+	et.input(1);
+	t = et.create_Post();
+
+	while(1)
+	{
+		cout<<"\n\nExpression Tree";
+		cout<<"\nRecursive Traversals: ";
+		cout<<"\n1. Inorder Traversal";
+		cout<<"\n2. Preorder Traversal";
+		cout<<"\n3. Postorder Traversal";
+		cout<<"\nNon-Recursive Traversals: ";
+		cout<<"\n4. Inorder Traversal";
+		cout<<"\n5. Preorder Traversal";
+		cout<<"\n6. Postorder Traversal";
+		cout<<"\n7. Exit the program";
+		cout<<"\nEnter your choice:- ";
+		cin>>choice;
+		switch(choice)
+		{
+			case 1: 
+				cout<<"\nInorder traversal with recursion:";
+				et.inorder_withRec(t);
+				break;
+			case 2: 
+				cout<<"\nPreorder traversal with recursion:";
+				et.preorder_withRec(t);
+				break;
+			case 3: 
+				cout<<"\nPostorder traversal with recursion:";
+				et.postorder_withRec(t);
+				break;
+			case 4: 
+				cout<<"\nInorder traversal without recursion:";
+				et.inorder_withoutRec(t);
+				break;
+			case 5: 
+				cout<<"\nPreorder traversal without recursion:";
+				et.preorder_withoutRec(t);
+				break;
+			case 6: 
+				cout<<"\nPostorder traversal without recursion:";
+				et.postorder_withoutRec(t);
+				break;
+			case 7: 
+				return 0;
+			default: 
+				cout<<"\nWrong choice. Please enter again.";
         }
     }
-    
-    
-    /*et.inorder_withoutRec(et.create_Post());
-    
-    cout<<"\nPreorder: ";
-    et.preorder_withRec(et.create_Post());
-    et.preorder_withoutRec(et.create_Post());
-    
-    cout<<"\nPostorder: ";
-    et.postorder_withRec(et.create_Post());
-    et.postorder_withoutRec(et.create_Post());*/
     return 0;
 }
