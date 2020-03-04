@@ -41,5 +41,5 @@ class Graph
 		void maxfriend();
 		Node2 *getnode(char []);
 		void show();
-
+		void bfs();
 };

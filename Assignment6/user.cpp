@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string.h>
+#include<queue>
 #include "user.h"
 #define MAX 100
 using namespace std;
@@ -141,4 +142,7 @@ void Graph::show()
 }
 
 
+void Graph::bfs()
+{
 
+}
