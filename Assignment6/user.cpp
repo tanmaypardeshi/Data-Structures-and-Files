@@ -129,7 +129,6 @@ Node2* Graph::getnode(char temp[])
 
 }
 
-
 void Graph::show()
 {
 	Node2 *temp=head;
