@@ -12,25 +12,27 @@ int main()
 	{
 		cin>>n>>m;		
 		a = new int*[2];
-		sum = new int[m+1];
 		for(i=0;i<2;i++)
 			a[i]= new int[n];
-			
+		sum = new int[m];
+		cout<<m<<endl;
+				
 		for(i=0;i<n;i++)
 			cin>>a[0][i];
 		for(i=0;i<n;i++)
 			cin>>a[1][i];
 		for(i=0;i<n;i++)
 		{
-			no = a[0][i]%m-1;
+			no = (a[0][i]%m);
 			sum[no] = sum[no] + a[1][i];
 		}
-		for(j=1;j<=m;j++)
+		int mini=sum[0];
+		for(j=0;j<m;j++)
 		{
-			cout<<"\nValue of m:- "<<j<<endl;
-			cout<<sum[j]<<" ";
-			cout<<endl;
+			if(mini<sum[j] && sum[j]!=0)
+				mini = sum[j];
 		}
+		cout<<mini;
 		t--;
 	}
 	return 0;
