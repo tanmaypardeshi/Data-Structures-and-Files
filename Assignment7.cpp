@@ -1,9 +1,10 @@
 #include<iostream>
+#include<iomanip>
 #include<string.h>
 
 using namespace std;
 
-class graph
+class Graph
 {
 	int n;
 	char vname[10][10];
@@ -11,51 +12,43 @@ class graph
 	int visit[10];
 
 	public:
-		graph();
+		Graph();
 		void create();
 		void display();
 		int position(char s[10]);
 		void kruskal();
 };
 
-graph::graph()
+Graph::Graph()
 {
 	n = 0;
 	for(int i=0;i<10;i++)
 		for(int j=0;j<10;j++)
 		{
-			vname[i][j]=NULL;
+			vname[i][j]='\0';
 			arr[i][j]=999;
 			visit[i]=0;
 		}
 }
 
-int graph::position(char s[10])
-{
-	for(int i=0;i<n;i++)
-		if(strcmp(vname[i],s)==0)
-				return i;
-	return -1;
-}
-
-void graph::create()
+void Graph::create()
 {
 	char vertex1[10],vertex2[10];
 	int weight;
 	char ans;
-	cout<<"Enter total vertex:";
+	cout<<"Enter total number of vertices:- ";
 	cin>>n;
 	for(int i=0;i<n;i++)
 	{
-		cout<<"Enter Vertex name:";
+		cout<<"Enter the name of the vertex:- ";
 		cin>>vname[i];
 	}
-	cout<<"Time to add weight";
+	
 	do
 	{
-		cout<<"\nEnter Vertex1: ";
+		cout<<"\nEnter the name of vertex 1:- ";
 		cin>>vertex1;
-		cout<<"Enter Vertex2: ";
+		cout<<"Enter the name of vertex 2:- ";
 		cin>>vertex2;
 
 		int i=position(vertex1);
@@ -63,28 +56,36 @@ void graph::create()
 
 		if(i!=-1&&j!=-1)
 		{
-			cout<<"Enter Weight between "<<vertex1<<" & "<<vertex2<<": ";
+			cout<<"Enter weight between "<<vertex1<<" & "<<vertex2<<":- ";
 			cin>>weight;
 			arr[i][j]=arr[j][i]=weight;
 		}
 		else
 			cout<<"Vertex is not present";
-		cout<<"\nDo you want to add more weight (Y/N):";
+		cout<<"\nDo you want to add more weight(Y/N):- ";
 		cin>>ans;
 	}while(ans=='y'||ans=='Y');
 }
 
-void graph::display()
+void Graph::display()
 {
 	for(int i=0;i<n;i++)
 	{
 		cout<<"\n";
 		for(int j=0;j<n;j++)
-			cout<<"  "<<arr[i][j];
+			cout<<setw(5)<<arr[i][j];
 	}
 }
 
-void graph::kruskal()
+int Graph::position(char s[10])
+{
+	for(int i=0;i<n;i++)
+		if(strcmp(vname[i],s)==0)
+			return i;
+	return -1;
+}
+
+void Graph::kruskal()
 {
 	int x,y,i,j,a,count,min,sum;
 	char start[10];
@@ -94,7 +95,7 @@ void graph::kruskal()
 	int flag=0;
 	int grp=1;
 
-	cout<<"\nEdge\tEdge\tWeight";
+	cout<<"\nEdge 1\tEdge 2\tWeight";
 	while(flag==0)
 	{
 		min=arr[i][j];
@@ -158,12 +159,12 @@ void graph::kruskal()
 				continue;
 		}
 	}
-	cout<<"\nTotal weight of kruskal graph is: "<<sum;
+	cout<<"\nTotal weight of Kruskal Graph is:- "<<sum;
 }
 
 int main()
 {
-	graph g1;
+	Graph g1;
 	g1.create();
 	g1.display();
 	g1.kruskal();
