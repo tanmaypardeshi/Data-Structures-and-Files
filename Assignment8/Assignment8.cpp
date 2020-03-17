@@ -110,8 +110,10 @@ void Graph::dijkstras()
             }
         }
     }
+    cout << "Vertex\t"
+         << "Minimum Distance" << endl;
     for (int i = 0; i < vertices; i++)
-        cout << i << "  " << distance[i] << endl;
+        cout << i + 1 << "\t    " << distance[i] << endl;
 }
 
 int main()
