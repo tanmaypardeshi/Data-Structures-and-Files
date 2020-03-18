@@ -9,6 +9,7 @@ class Graph
     int graph[SIZE][SIZE];
     int distance[SIZE];
     int visited[SIZE];
+    int mst[SIZE];
 
 public:
     Graph() {}
@@ -16,7 +17,7 @@ public:
     void create();
     void display();
     int findminvertex();
-    void dijkstras();
+    void prims();
 };
 
 Graph::Graph(int v, int e)
@@ -83,36 +84,47 @@ void Graph::display()
 
 int Graph::findminvertex()
 {
-    int minvertex = -1;
+    int min = INT32_MAX;
+    int min_index;
 
     for (int i = 0; i < vertices; i++)
-    {
-        if (!visited[i] && (minvertex == -1 || distance[i] < distance[minvertex]))
-            minvertex = i;
-    }
-    return minvertex;
+        if (!visited[i] && distance[i] < min)
+        {
+            min = distance[i];
+            min_index = i;
+        }
+    return min_index;
 }
 
-void Graph::dijkstras()
+void Graph::prims()
 {
+
+    for (int i = 0; i < vertices; i++)
+    {
+        distance[i] = INT32_MAX;
+        visited[i] = 0;
+    }
+
+    distance[0] = 0;
+    mst[0] = -1;
+
     for (int i = 0; i < vertices - 1; i++)
     {
-        int minvertex = findminvertex();
-        visited[minvertex] = 1;
+        int min = findminvertex();
+        visited[i] = 1;
+
         for (int j = 0; j < vertices; j++)
         {
-            if (!visited[j] && graph[minvertex][j] != 0)
-            {
-                int dist = distance[minvertex] + graph[minvertex][j];
-                if (dist < distance[j])
-                    distance[j] = dist;
-            }
+            if (!visited[j] && graph[i][j] && graph[i][j] < distance[j])
+                mst[j] = min;
+            distance[j] = graph[i][j];
         }
     }
-    cout << "Vertex\t"
-         << "Minimum Distance" << endl;
+    cout << "Edge\tWeight" << endl;
     for (int i = 0; i < vertices; i++)
-        cout << i + 1 << "\t    " << distance[i] << endl;
+    {
+        cout << mst[i] << " - " << i << "\t" << graph[i][mst[i]];
+    }
 }
 
 int main()
@@ -147,7 +159,7 @@ int main()
             break;
 
         case 3:
-            g.dijkstras();
+            g.prims();
             break;
 
         case 4:
