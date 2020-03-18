@@ -5,32 +5,38 @@ using namespace std;
 
 class Graph
 {
-    int vertices, edges;
+    int vertices, edges, cost;
     int graph[SIZE][SIZE];
+    int mst[SIZE][SIZE];
     int distance[SIZE];
     int visited[SIZE];
-    int mst[SIZE];
+    int parent[SIZE];
 
 public:
     Graph() {}
     Graph(int, int);
     void create();
     void display();
-    int findminvertex();
     void prims();
+    void displaymst();
 };
 
 Graph::Graph(int v, int e)
 {
     vertices = v;
     edges = e;
+    cost = 0;
 
     for (int i = 0; i < vertices; i++)
     {
         distance[i] = INT32_MAX;
         visited[i] = 0;
+        parent[i] = -1;
         for (int j = 0; j < vertices; j++)
+        {
             graph[i][j] = 0;
+            mst[i][j] = 0;
+        }
     }
     distance[0] = 0;
 }
@@ -74,57 +80,65 @@ void Graph::create()
 
 void Graph::display()
 {
+    cout << "\n\nThe given tree is:- \n"
+         << endl;
     for (int i = 0; i < vertices; i++)
     {
         for (int j = 0; j < vertices; j++)
-            cout << setw(3) << graph[i][j];
+            cout << setw(4) << graph[i][j];
         cout << endl;
     }
 }
 
-int Graph::findminvertex()
-{
-    int min = INT32_MAX;
-    int min_index;
-
-    for (int i = 0; i < vertices; i++)
-        if (!visited[i] && distance[i] < min)
-        {
-            min = distance[i];
-            min_index = i;
-        }
-    return min_index;
-}
-
 void Graph::prims()
 {
+    int min;
 
-    for (int i = 0; i < vertices; i++)
+    for (int k = 0; k < vertices - 1; k++)
     {
-        distance[i] = INT32_MAX;
-        visited[i] = 0;
-    }
-
-    distance[0] = 0;
-    mst[0] = -1;
-
-    for (int i = 0; i < vertices - 1; i++)
-    {
-        int min = findminvertex();
-        visited[i] = 1;
-
-        for (int j = 0; j < vertices; j++)
+        min = -1;
+        for (int i = 0; i < vertices; i++)
         {
-            if (!visited[j] && graph[i][j] && graph[i][j] < distance[j])
-                mst[j] = min;
-            distance[j] = graph[i][j];
+            if (!visited[i] && (min == -1 || distance[i] < distance[min]))
+                min = i;
+        }
+        visited[min] = 1;
+
+        for (int i = 0; i < vertices; i++)
+        {
+            if (graph[min][i] != 0 && !visited[i] && graph[min][i] < distance[i])
+            {
+                distance[i] = graph[min][i];
+                parent[i] = min;
+            }
         }
     }
-    cout << "Edge\tWeight" << endl;
+
     for (int i = 0; i < vertices; i++)
     {
-        cout << mst[i] << " - " << i << "\t" << graph[i][mst[i]];
+        int j = parent[i];
+        if (j != -1)
+        {
+            mst[j][i] = distance[i];
+            mst[i][j] = distance[i];
+            cost += distance[i];
+        }
     }
+}
+
+void Graph::displaymst()
+{
+    cout << "\n\nThe minimal spanning tree is\n"
+         << endl;
+
+    for (int i = 0; i < vertices; i++)
+    {
+        for (int j = 0; j < vertices; j++)
+            cout << setw(4) << mst[i][j];
+        cout << endl;
+    }
+
+    cout << "\nThe cost of the MST is " << cost << endl;
 }
 
 int main()
@@ -135,10 +149,10 @@ int main()
     while (1)
     {
 
-        cout << "\nImplementation of Kruskal's algorithm" << endl;
+        cout << "\nImplementation of Prim's algorithm" << endl;
         cout << "1. Create graph" << endl;
         cout << "2. Display graph" << endl;
-        cout << "3. Find shortest path using Dijkstra's algorithm" << endl;
+        cout << "3. Find MST using Prim's algorithm" << endl;
         cout << "4. Exit the program" << endl;
         cout << "\nEnter your choice:- ";
         cin >> choice;
@@ -160,6 +174,7 @@ int main()
 
         case 3:
             g.prims();
+            g.displaymst();
             break;
 
         case 4:
