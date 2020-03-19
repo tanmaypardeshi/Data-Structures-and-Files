@@ -123,7 +123,7 @@ int main()
     while (1)
     {
 
-        cout << "\nImplementation of Kruskal's algorithm" << endl;
+        cout << "\nImplementation of Dijkstra's algorithm" << endl;
         cout << "1. Create graph" << endl;
         cout << "2. Display graph" << endl;
         cout << "3. Find shortest path using Dijkstra's algorithm" << endl;

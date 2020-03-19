@@ -20,6 +20,7 @@ public:
     HashTable() {}
     HashTable(int);
     void woreplacement(long, string);
+    void wreplacement(long, string);
     void display();
 };
 
@@ -56,8 +57,10 @@ void HashTable::woreplacement(long number, string name)
     }
     else
     {
-        while (!h[j].flag && i < size)
+        while (h[j].flag && i < size)
         {
+            if (h[j].number % size == number % size)
+                break;
             j = (j + 1) % size;
             i++;
         }
@@ -71,6 +74,70 @@ void HashTable::woreplacement(long number, string name)
         h[location].flag = true;
         h[location].number = number;
         h[location].name = name;
+    }
+}
+
+void HashTable::wreplacement(long number, string name)
+{
+
+    int location, oldlocation, i, j, flag = 0;
+    Node temp;
+    location = number % size;
+    i = 0;
+    j = location;
+
+    if (!h[location].flag)
+    {
+        h[location].flag = true;
+        h[location].number = number;
+        h[location].name = name;
+    }
+
+    else
+    {
+        if (h[location].number % size != location)
+        {
+            temp.name = h[location].name;
+            temp.number = h[location].number;
+            temp.flag = true;
+            temp.chain = h[location].chain;
+
+            h[location].name = name;
+            h[location].number = number;
+            h[location].chain = -1;
+
+            name = temp.name;
+            number = temp.number;
+            oldlocation = location;
+            flag = true;
+        }
+
+        while (h[j].flag && i < size)
+        {
+            if (h[j].number % size == number % size)
+                break;
+            j = (j + 1) % size;
+            i++;
+        }
+        if (i == size)
+        {
+            cout << "\nTable is full." << endl;
+            return;
+        }
+
+        if (!flag)
+            h[location].chain = j;
+        location = j;
+        h[location].flag = 1;
+        h[location].number = number;
+        h[location].name = name;
+
+        for (int i = 0; i < size; i++)
+            if (h[i].chain == oldlocation)
+            {
+                h[i].chain = location;
+                break;
+            }
     }
 }
 
@@ -102,7 +169,7 @@ int main()
         cout << "Enter the mobile number:- ";
         int number;
         cin >> number;
-        h.woreplacement(number, name);
+        h.wreplacement(number, name);
         cntr++;
         cout << "Do you want to continue:- ";
         cin >> ask;
