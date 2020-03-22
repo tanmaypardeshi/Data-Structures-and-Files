@@ -5,7 +5,7 @@ using namespace std;
 
 struct Node
 {
-    long long int number;
+    long long number;
     string name;
     bool flag;
     int chain;
@@ -19,8 +19,8 @@ class HashTable
 public:
     HashTable() {}
     HashTable(int);
-    void woreplacement(long, string);
-    void wreplacement(long, string);
+    void woreplacement(long long, string);
+    void wreplacement(long long, string);
     void display();
 };
 
@@ -41,136 +41,175 @@ HashTable::HashTable(int n)
     cout << "\nHashtable created successfully!" << endl;
 }
 
-void HashTable::woreplacement(long number, string name)
+void HashTable::woreplacement(long long number, string name)
 {
-    int location;
-    int i = 0;
+    int i = 0, j, location;
 
     location = number % size;
-    int j = location;
-
-    if (!h[location].flag)
-    {
-        h[location].name = name;
-        h[location].number = number;
-        h[location].flag = true;
-    }
-    else
-    {
-        while (h[j].flag && i < size)
-        {
-            j = (j + 1) % size;
-            i++;
-        }
-        if (i == size)
-        {
-            cout << "\nHash Table is full\n";
-            return;
-        }
-        h[location].chain = j;
-        location = j;
-        h[location].flag = true;
-        h[location].number = number;
-        h[location].name = name;
-    }
-}
-
-void HashTable::wreplacement(long number, string name)
-{
-
-    int location, oldlocation, i, j, flag = 0;
-    Node temp;
-    location = number % size;
-    i = 0;
     j = location;
 
-    if (!h[location].flag)
+    while (h[j].flag && i < size)
     {
-        h[location].flag = true;
-        h[location].number = number;
-        h[location].name = name;
+        if (h[j].number % size == number % size)
+            break;
+        j = (j + 1) % size;
+        i++;
     }
 
-    else
+    if (i == size)
     {
-        if (h[location].number % size != location)
-        {
-            temp.name = h[location].name;
-            temp.number = h[location].number;
-            temp.flag = true;
-            temp.chain = h[location].chain;
+        cout << "\nHash table is full" << endl;
+        return;
+    }
+    while (h[j].chain != -1)
+        j = h[j].chain;
 
-            h[location].name = name;
+    location = j;
+
+    while (h[location].flag && i < size)
+    {
+        location = (location + 1) % size;
+        i++;
+    }
+    if (i == size)
+    {
+        cout << "\nHash table is full" << endl;
+        return;
+    }
+
+    h[location].number = number;
+    h[location].name = name;
+    h[location].flag = true;
+
+    if (j != location)
+        h[j].chain = location;
+}
+
+void HashTable::wreplacement(long long number, string name)
+{
+    int location;
+    int i, j;
+
+    for (int i = 0; i < size; i++)
+    {
+        h[i].flag = false;
+        h[i].chain = -1;
+    }
+    for (int k = 0; k < size; k++)
+    {
+        location = number % size;
+        i = 0;
+
+        if (h[location].flag == false)
+        {
             h[location].number = number;
-            h[location].chain = -1;
-
-            name = temp.name;
-            number = temp.number;
-            oldlocation = location;
-            flag = true;
+            h[location].name = name;
+            h[location].flag = true;
         }
-
-        while (h[j].flag && i < size)
+        else
         {
-            if (h[j].number % size == number % size)
-                break;
-            j = (j + 1) % size;
-            i++;
-        }
-        if (i == size)
-        {
-            cout << "\nTable is full." << endl;
-            return;
-        }
-
-        if (!flag)
-            h[location].chain = j;
-        location = j;
-        h[location].flag = 1;
-        h[location].number = number;
-        h[location].name = name;
-
-        for (int i = 0; i < size; i++)
-            if (h[i].chain == oldlocation)
+            i = 0;
+            j = location;
+            while (i < size && h[j].flag)
             {
-                h[i].chain = location;
-                break;
+                j = (j + 1) % size;
+                i++;
             }
+
+            if (i == size)
+            {
+                cout << "\nHashtable is full";
+                return;
+            }
+
+            if (h[location].number % size != location)
+            {
+                i = h[location].number % size;
+                while (h[i].chain != location)
+                    i = h[i].chain;
+                h[i].chain = h[location].chain;
+
+                while (h[i].chain != -1)
+                    i = h[i].chain;
+                h[i].chain = j;
+
+                h[j].number = h[location].number;
+                h[j].name = h[location].name;
+                h[j].flag = true;
+                h[j].chain = -1;
+
+                h[location].number = number;
+                h[location].name = name;
+                h[location].flag = true;
+                h[location].chain = -1;
+            }
+            else
+            {
+                h[j].number = number;
+                h[j].name = name;
+                h[j].flag = true;
+                h[j].chain = -1;
+
+                i = location;
+                while (h[i].chain != -1)
+                    i = h[i].chain;
+                h[i].chain = j;
+            }
+        }
     }
 }
 
 void HashTable::display()
 {
-    cout << "---------------------------------------";
-    ;
-    cout << "---------------------------------------\n";
+    cout << "--------------------------------------------------------------------" << endl;
+    cout << "\nSr.no\tName\tTelephone\t\tChain" << endl;
+    cout << "--------------------------------------------------------------------" << endl;
     for (int i = 0; i < size; i++)
     {
-        cout << setw(10) << h[i].name << setw(25) << h[i].number << setw(28) << h[i].chain << endl;
+        cout << i + 1 << "\t" << h[i].name << "\t" << h[i].number << "\t\t" << h[i].chain << endl;
     }
+    cout << "--------------------------------------------------------------------" << endl;
 }
 
 int main()
 {
-    char ask = 'y';
-    int n;
-    cout << "Enter the size of the hashtable:- ";
-    cin >> n;
+    int choice, size;
+    string name;
+    long long number;
 
-    HashTable h(n);
-    int cntr = 0;
-    while ((ask == 'y' || ask == 'Y') && cntr < n)
+    cout << "Enter the size of the hash table:- ";
+    cin >> size;
+    HashTable t(size);
+
+    while (1)
     {
-        cout << "\nEnter name:- ";
-        string name;
-        cin >> name;
-        cout << "Enter the mobile number:- ";
-        int number;
-        cin >> number;
-        h.wreplacement(number, name);
-        cntr++;
-        cout << "Do you want to continue:- ";
-        cin >> ask;
+        cout << "\nLinear Probing in hash table" << endl;
+        cout << "1. Insert with chaining without replacement." << endl;
+        cout << "2. Insert with chaining with replacement." << endl;
+        cout << "3. Exit program." << endl;
+        cout << "\nEnter your choice:- ";
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            cout << "Enter the name:- ";
+            cin >> name;
+            cout << "Enter the number:- ";
+            cin >> number;
+            t.woreplacement(number, name);
+            t.display();
+            break;
+        case 2:
+            cout << "Enter the name:- ";
+            cin >> name;
+            cout << "Enter the number:- ";
+            cin >> number;
+            t.wreplacement(number, name);
+            t.display();
+            break;
+        case 3:
+            return 0;
+        }
     }
-    h.display();
+    return 0;
 }
