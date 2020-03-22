@@ -1,0 +1,84 @@
+Implementation of Dijkstra's algorithm
+1. Create graph
+2. Display graph
+3. Find shortest path using Dijkstra's algorithm
+4. Exit the program
+
+Enter your choice:- 1
+
+Enter the number of vertices:- 5
+
+Enter the number of edges:- 7
+
+Enter the source vertex:- 1
+Enter the destination vertex:- 2
+Enter the weight of the graph:- 10
+Inserted edge between 1 and 2
+
+Enter the source vertex:- 2
+Enter the destination vertex:- 3
+Enter the weight of the graph:- 50
+Inserted edge between 2 and 3
+
+Enter the source vertex:- 3
+Enter the destination vertex:- 4
+Enter the weight of the graph:- 20
+Inserted edge between 3 and 4
+
+Enter the source vertex:- 4
+Enter the destination vertex:- 5
+Enter the weight of the graph:- 60
+Inserted edge between 4 and 5
+
+Enter the source vertex:- 3
+Enter the destination vertex:- 5
+Enter the weight of the graph:- 10
+Inserted edge between 3 and 5
+
+Enter the source vertex:- 1
+Enter the destination vertex:- 4
+Enter the weight of the graph:- 30
+Inserted edge between 1 and 4
+
+Enter the source vertex:- 1
+Enter the destination vertex:- 5
+Enter the weight of the graph:- 100
+Inserted edge between 1 and 5
+
+
+Graph created successfully
+
+Implementation of Dijkstra's algorithm
+1. Create graph
+2. Display graph
+3. Find shortest path using Dijkstra's algorithm
+4. Exit the program
+
+Enter your choice:- 2
+  0 10  0 30 100
+ 10  0 50  0  0
+  0 50  0 20 10
+ 30  0 20  0 60
+100  0 10 60  0
+
+Implementation of Dijkstra's algorithm
+1. Create graph
+2. Display graph
+3. Find shortest path using Dijkstra's algorithm
+4. Exit the program
+
+Enter your choice:- 3
+Vertex  Minimum Distance
+1           0
+2           10
+3           50
+4           30
+5           60
+
+Implementation of Dijkstra's algorithm
+1. Create graph
+2. Display graph
+3. Find shortest path using Dijkstra's algorithm
+4. Exit the program
+
+Enter your choice:- 4

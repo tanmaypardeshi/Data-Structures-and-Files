@@ -1,0 +1,192 @@
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 1
+Enter the roll number:- 23260
+Enter the name of the student:- Tanmay
+Enter the marks:- 85
+
+Do you want to add another record?(y/n):- y
+Enter the roll number:- 23250
+Enter the name of the student:- Harsh
+Enter the marks:- 89
+
+Do you want to add another record?(y/n):- y
+Enter the roll number:- 23255
+Enter the name of the student:- Muskaan
+Enter the marks:- 90
+
+Do you want to add another record?(y/n):- y
+Enter the roll number:- 23251
+Enter the name of the student:- Saloni
+Enter the marks:- 91
+
+Do you want to add another record?(y/n):- y
+Enter the roll number:- 23212
+Enter the name of the student:- Kaustubh
+Enter the marks:- 87
+
+Do you want to add another record?(y/n):- n
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 2
+
+-----------------------------------------------------------------
+Sr No. Roll No.    Name       Marks
+
+-----------------------------------------------------------------
+  1     23260      Tanmay       85
+  2     23250      Harsh        89
+  3     23255      Muskaan      90
+  4     23251      Saloni       91
+  5     23212      Kaustubh     87
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 3
+Enter the details of the record you want to insert:- 
+Enter the roll number:- 23240
+Enter the name of the student:- Makarand
+Enter the marks:- 88
+Record inserted successfully
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 2
+
+-----------------------------------------------------------------
+Sr No. Roll No.    Name       Marks
+
+-----------------------------------------------------------------
+  1     23260      Tanmay       85
+  2     23250      Harsh        89
+  3     23255      Muskaan      90
+  4     23251      Saloni       91
+  5     23212      Kaustubh     87
+  6     23240      Makarand     88
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 4
+Enter the roll number of the record you want to delete:- 23250
+Record with roll number 23250 deleted successfully
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 2
+
+-----------------------------------------------------------------
+Sr No. Roll No.    Name       Marks
+
+-----------------------------------------------------------------
+  1     23260      Tanmay       85
+  2     23255      Muskaan      90
+  3     23251      Saloni       91
+  4     23212      Kaustubh     87
+  5     23240      Makarand     88
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 4
+Enter the roll number of the record you want to delete:- 23250
+
+Record with roll number 23250 not found
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 5
+Enter the roll number of the record you want to edit:- 23250
+
+Record with roll number 23250 not found
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 5
+Enter the roll number of the record you want to edit:- 23240
+Enter new name of student:- Shantanu
+Enter the new marks:- 87
+Record with roll number 23240 edited successfully
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 2
+
+-----------------------------------------------------------------
+Sr No. Roll No.    Name       Marks
+
+-----------------------------------------------------------------
+  1     23260      Tanmay       85
+  2     23255      Muskaan      90
+  3     23251      Saloni       91
+  4     23212      Kaustubh     87
+  5     23240      Shantanu     87
+
+Students Database
+1. Create
+2. Display
+3. Add
+4. Delete
+5. Modify
+6. Exit program
+
+Enter your choice:- 6

@@ -1,0 +1,386 @@
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 1
+
+Enter your name:- Tanmay
+
+Enter your birth date(dd<space>mm<space>yyyy):- 07 03 2000
+
+Enter the number of comments you've made:- 54
+
+Profile created successfully! Welcome to Facebook.
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 1
+
+Enter your name:- Kaustubh
+
+Enter your birth date(dd<space>mm<space>yyyy):- 02 07 2000
+
+Enter the number of comments you've made:- 32
+
+Profile created successfully! Welcome to Facebook.
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 1
+
+Enter your name:- Shantanu
+
+Enter your birth date(dd<space>mm<space>yyyy):- 11 07 2000
+
+Enter the number of comments you've made:- 76
+
+Profile created successfully! Welcome to Facebook.
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 1
+
+Enter your name:- Makarand 
+
+Enter your birth date(dd<space>mm<space>yyyy):- 23 08 2000
+
+Enter the number of comments you've made:- 13
+
+Profile created successfully! Welcome to Facebook.
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 2
+
+-------------Facebook USERS-------------
+1. Tanmay
+2. Kaustubh
+3. Shantanu
+4. Makarand
+----------------------------------------
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 3
+
+Enter the name of user 1:- Tanmay
+
+Enter the name of user 2:- Makarand
+
+Tanmay is now a friend of Makarand.
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 2
+
+-------------Facebook USERS-------------
+1. Tanmay
+2. Kaustubh
+3. Shantanu
+4. Makarand
+----------------------------------------
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 3
+
+Enter the name of user 1:- Kaustubh
+
+Enter the name of user 2:- Makarand
+
+Kaustubh is now a friend of Makarand.
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 3
+
+Enter the name of user 1:- Tanmay 
+
+Enter the name of user 2:- Shantanu
+Tanmay is now a friend of Shantanu.
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 3
+
+Enter the name of user 1:- Tanmay
+
+Enter the name of user 2:- Aditya
+
+User does not exist
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 2
+
+-------------Facebook USERS-------------
+1. Tanmay
+2. Kaustubh
+3. Shantanu
+4. Makarand
+----------------------------------------
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 4
+
+Enter name:- Aditya
+
+User does not exist.
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 4
+
+Enter name:- Tanmay
+
+-----Tanmay's Profile-----
+
+Birthday : 7/3/2000
+
+Comments : 54
+
+Friends List:- 
+1. Makarand
+2. Shantanu
+
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 4
+
+Enter name:- Kaustubh
+
+-----Kaustubh's Profile-----
+
+Birthday : 2/7/2000
+
+Comments : 32
+
+Friends List:- 
+1. Makarand
+
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 4
+
+Enter name:- Shantanu
+
+-----Shantanu's Profile-----
+
+Birthday : 11/7/2000
+
+Comments : 76
+
+Friends List:- 
+1. Tanmay
+
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 4
+
+Enter name:- Makarand
+
+-----Makarand's Profile-----
+
+Birthday : 23/8/2000
+
+Comments : 13
+
+Friends List:- 
+1. Tanmay
+2. Makarand
+
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 5
+
+-----MINIMUM COMMENTS-----
+Tanmay  54
+--------------------------
+
+-----MAXIMUM COMMENTS-----
+Shantanu        76
+--------------------------
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 6
+
+Enter the month:- 03
+
+-----Birthdays in March-----
+Tanmay  7/3/2000
+----------------------------
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 6
+
+Enter the month:- 07
+
+-----Birthdays in July-----
+Shantanu        11/7/2000
+----------------------------
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 6
+
+Enter the month:- 08
+
+-----Birthdays in August-----
+Makarand        23/8/2000
+----------------------------
+
+DFS and BFS
+1. Create new user
+2. Display all user names
+3. Add Friends
+4. View a user's  profile
+5. Get maximum and minimum comments
+6. Check for birthdays
+7. Exit program
+
+Enter your choice:- 7

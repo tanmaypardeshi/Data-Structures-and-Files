@@ -5,7 +5,7 @@ using namespace std;
 
 struct Node
 {
-    long number;
+    long long int number;
     string name;
     bool flag;
     int chain;
@@ -59,8 +59,6 @@ void HashTable::woreplacement(long number, string name)
     {
         while (h[j].flag && i < size)
         {
-            if (h[j].number % size == number % size)
-                break;
             j = (j + 1) % size;
             i++;
         }

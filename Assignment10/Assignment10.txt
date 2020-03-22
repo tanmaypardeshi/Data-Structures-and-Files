@@ -1,0 +1,107 @@
+Implementation of Prim's algorithm
+1. Create graph
+2. Display graph
+3. Find MST using Prim's algorithm
+4. Exit the program
+
+Enter your choice:- 1
+
+Enter the number of vertices:- 7
+
+Enter the number of edges:- 9
+
+Enter the source vertex:- 1
+Enter the destination vertex:- 3
+Enter the weight of the graph:- 2
+Inserted edge between 1 and 3
+
+Enter the source vertex:- 3
+Enter the destination vertex:- 4
+Enter the weight of the graph:- 3
+Inserted edge between 3 and 4
+
+Enter the source vertex:- 4
+Enter the destination vertex:- 6
+Enter the weight of the graph:- 2
+Inserted edge between 4 and 6
+
+Enter the source vertex:- 6
+Enter the destination vertex:- 7
+Enter the weight of the graph:- 7
+Inserted edge between 6 and 7
+
+Enter the source vertex:- 7
+Enter the destination vertex:- 5
+Enter the weight of the graph:- 5
+Inserted edge between 7 and 5
+
+Enter the source vertex:- 5
+Enter the destination vertex:- 1
+Enter the weight of the graph:- 3
+Inserted edge between 5 and 1
+
+Enter the source vertex:- 1
+Enter the destination vertex:- 2
+Enter the weight of the graph:- 1
+Inserted edge between 1 and 2
+
+Enter the source vertex:- 2
+Enter the destination vertex:- 5
+Enter the weight of the graph:- 2
+Inserted edge between 2 and 5
+
+Enter the source vertex:- 2
+Enter the destination vertex:- 6
+Enter the weight of the graph:- 4
+Inserted edge between 2 and 6
+
+
+Graph created successfully
+
+Implementation of Prim's algorithm
+1. Create graph
+2. Display graph
+3. Find MST using Prim's algorithm
+4. Exit the program
+
+Enter your choice:- 2
+
+
+The given tree is:- 
+
+   0   1   2   0   3   0   0
+   1   0   0   0   2   4   0
+   2   0   0   3   0   0   0
+   0   0   3   0   0   2   0
+   3   2   0   0   0   0   5
+   0   4   0   2   0   0   7
+   0   0   0   0   5   7   0
+
+Implementation of Prim's algorithm
+1. Create graph
+2. Display graph
+3. Find MST using Prim's algorithm
+4. Exit the program
+
+Enter your choice:- 3
+
+
+The minimal spanning tree is
+
+   0   1   2   0   0   0   0
+   1   0   0   0   2   0   0
+   2   0   0   3   0   0   0
+   0   0   3   0   0   2   0
+   0   2   0   0   0   0   5
+   0   0   0   2   0   0   0
+   0   0   0   0   5   0   0
+
+The cost of the MST is 15
+
+Implementation of Prim's algorithm
+1. Create graph
+2. Display graph
+3. Find MST using Prim's algorithm
+4. Exit the program
+
+Enter your choice:- 4
