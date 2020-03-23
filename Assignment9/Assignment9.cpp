@@ -89,72 +89,63 @@ void HashTable::wreplacement(long long number, string name)
 {
     int location;
     int i, j;
+    location = number % size;
+    i = 0;
 
-    for (int i = 0; i < size; i++)
+    if (!h[location].flag)
     {
-        h[i].flag = false;
-        h[i].chain = -1;
+        h[location].number = number;
+        h[location].name = name;
+        h[location].flag = true;
     }
-    for (int k = 0; k < size; k++)
+    else
     {
-        location = number % size;
         i = 0;
-
-        if (h[location].flag == false)
+        j = location;
+        while (i < size && h[j].flag)
         {
+            j = (j + 1) % size;
+            i++;
+        }
+
+        if (i == size)
+        {
+            cout << "\nHashtable is full";
+            return;
+        }
+
+        if (h[location].number % size != location)
+        {
+            i = h[location].number % size;
+            while (h[i].chain != location)
+                i = h[i].chain;
+            h[i].chain = h[location].chain;
+
+            while (h[i].chain != -1)
+                i = h[i].chain;
+            h[i].chain = j;
+
+            h[j].number = h[location].number;
+            h[j].name = h[location].name;
+            h[j].flag = true;
+            h[j].chain = -1;
+
             h[location].number = number;
             h[location].name = name;
             h[location].flag = true;
+            h[location].chain = -1;
         }
         else
         {
-            i = 0;
-            j = location;
-            while (i < size && h[j].flag)
-            {
-                j = (j + 1) % size;
-                i++;
-            }
+            h[j].number = number;
+            h[j].name = name;
+            h[j].flag = true;
+            h[j].chain = -1;
 
-            if (i == size)
-            {
-                cout << "\nHashtable is full";
-                return;
-            }
-
-            if (h[location].number % size != location)
-            {
-                i = h[location].number % size;
-                while (h[i].chain != location)
-                    i = h[i].chain;
-                h[i].chain = h[location].chain;
-
-                while (h[i].chain != -1)
-                    i = h[i].chain;
-                h[i].chain = j;
-
-                h[j].number = h[location].number;
-                h[j].name = h[location].name;
-                h[j].flag = true;
-                h[j].chain = -1;
-
-                h[location].number = number;
-                h[location].name = name;
-                h[location].flag = true;
-                h[location].chain = -1;
-            }
-            else
-            {
-                h[j].number = number;
-                h[j].name = name;
-                h[j].flag = true;
-                h[j].chain = -1;
-
-                i = location;
-                while (h[i].chain != -1)
-                    i = h[i].chain;
-                h[i].chain = j;
-            }
+            i = location;
+            while (h[i].chain != -1)
+                i = h[i].chain;
+            h[i].chain = j;
         }
     }
 }

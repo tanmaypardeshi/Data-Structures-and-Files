@@ -1,0 +1,158 @@
+Enter the size of the hash table:- 10
+
+Hashtable created successfully!
+
+Hashtable created successfully!
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 1
+Enter the name:- Tanmay
+Enter the number:- 9922704425
+Inserted successfully
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 1
+Enter the name:- Aditya
+Enter the number:- 9823704435
+Inserted successfully
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 1
+Enter the name:- Kaustubh
+Enter the number:- 9876502215
+Inserted successfully
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 1
+Enter the name:- Preeti
+Enter the number:- 9877894466
+Inserted successfully
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 3
+--------------------------------------------------------------------
+
+Sr.no   Name       Telephone    Chain
+--------------------------------------------------------------------
+  1                        0        -1
+  2                        0        -1
+  3                        0        -1
+  4                        0        -1
+  5                        0        -1
+  6    Tanmay     9922704425         6
+  7    Aditya     9823704435         7
+  8  Kaustubh     9876502215        -1
+  9    Preeti     9877894466        -1
+ 10                        0        -1
+--------------------------------------------------------------------
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 2
+Enter the name:- Tanmay
+Enter the number:- 9922704485
+Inserted successfully
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 2
+Enter the name:- Aditya 
+Enter the number:- 9823405535
+Inserted successfully
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 2
+Enter the name:- Kaustubh
+Enter the number:- 9876502215
+Inserted successfully
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 2
+Enter the name:- Preeti
+Enter the number:- 9867553456
+Inserted successfully
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 4
+--------------------------------------------------------------------
+
+Sr.no   Name       Telephone    Chain
+--------------------------------------------------------------------
+  1                        0        -1
+  2                        0        -1
+  3                        0        -1
+  4                        0        -1
+  5                        0        -1
+  6    Tanmay     9922704485         7
+  7    Preeti     9867553456        -1
+  8  Kaustubh     9876502215         8
+  9    Aditya     9823405535        -1
+ 10                        0        -1
+--------------------------------------------------------------------
+
+Linear Probing in hash table
+1. Insert with chaining without replacement.
+2. Insert with chaining with replacement.
+3. Display table having chaining without replacemment
+4. Display table having chaining with replacement
+5. Exit program.
+
+Enter your choice:- 5
