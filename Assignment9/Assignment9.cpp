@@ -162,11 +162,11 @@ void HashTable::wreplacement(long long number, string name)
 void HashTable::display()
 {
     cout << "--------------------------------------------------------------------" << endl;
-    cout << "\nSr.no\tName\tTelephone\t\tChain" << endl;
+    cout << "\nSr.no\tName\t   Telephone\tChain" << endl;
     cout << "--------------------------------------------------------------------" << endl;
     for (int i = 0; i < size; i++)
     {
-        cout << i + 1 << "\t" << h[i].name << "\t" << h[i].number << "\t\t" << h[i].chain << endl;
+        cout << setw(3) << i + 1 << setw(10) << h[i].name << setw(15) << h[i].number << setw(10) << h[i].chain << endl;
     }
     cout << "--------------------------------------------------------------------" << endl;
 }
@@ -179,14 +179,17 @@ int main()
 
     cout << "Enter the size of the hash table:- ";
     cin >> size;
-    HashTable t(size);
+    HashTable t1(size);
+    HashTable t2(size);
 
     while (1)
     {
         cout << "\nLinear Probing in hash table" << endl;
         cout << "1. Insert with chaining without replacement." << endl;
         cout << "2. Insert with chaining with replacement." << endl;
-        cout << "3. Exit program." << endl;
+        cout << "3. Display table having chaining without replacemment" << endl;
+        cout << "4. Display table having chaining with replacement" << endl;
+        cout << "5. Exit program." << endl;
         cout << "\nEnter your choice:- ";
         cin >> choice;
         switch (choice)
@@ -196,19 +199,27 @@ int main()
             cin >> name;
             cout << "Enter the number:- ";
             cin >> number;
-            t.woreplacement(number, name);
-            t.display();
+            t1.woreplacement(number, name);
+            cout << "Inserted successfully" << endl;
             break;
         case 2:
             cout << "Enter the name:- ";
             cin >> name;
             cout << "Enter the number:- ";
             cin >> number;
-            t.wreplacement(number, name);
-            t.display();
+            t2.wreplacement(number, name);
+            cout << "Inserted successfully" << endl;
             break;
         case 3:
+            t1.display();
+            break;
+        case 4:
+            t2.display();
+            break;
+        case 5:
             return 0;
+        default:
+            cout << "\nError in choice, try again" << endl;
         }
     }
     return 0;
