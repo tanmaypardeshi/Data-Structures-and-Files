@@ -1,3 +1,10 @@
+/* 
+Assignment 7
+Name:- Tanmay Pardeshi
+Roll number:- 23260
+Batch:- H10
+*/
+
 #include<iostream>
 #define SIZE 100
 using namespace std;

@@ -11,4 +11,6 @@
 /Assignment10/a.out
 /Assignment11/a.out
 /Assignment12/a.out
+/Assignment11/*.dat
+/Assignment12/*.dat
 .vscode
