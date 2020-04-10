@@ -1,0 +1,158 @@
+Enter filename: recs.dat
+
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 1
+
+Enter details: 
+Enter roll number, name and marks: 5
+Atharva
+90
+
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 3
+
+Enter details: 
+Enter roll number, name and marks: 15 
+Parsh
+70
+
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 3
+
+Enter details: 
+Enter roll number, name and marks: 66 Santosh
+89
+
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 3
+
+Enter details: 
+Enter roll number, name and marks: 25
+Hrishi
+95
+
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 2
+
+0 !Empty!
+1 !Empty!
+2 !Empty!
+3 !Empty!
+4 !Empty!
+5 5 Atharva 90 6
+6 15 Parsh 70 8
+7 66 Santosh 89 -1
+8 25 Hrishi 95 -1
+9 !Empty!
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 4
+
+Enter roll number to be searched: 19
+
+Record not found!
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 4
+
+Enter roll number to be searched: 15
+
+Record Number: 6
+6 15 Parsh 70 8
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 5
+
+Enter roll number to be modified: 19
+
+Record not found!
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 5
+
+Enter roll number to be modified: 5
+
+Enter modified details: 
+Enter roll number, name and marks: 17
+Raghav
+70
+
+Record Number: 5
+5 17 Raghav 70 6
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 2
+
+0 !Empty!
+1 !Empty!
+2 !Empty!
+3 !Empty!
+4 !Empty!
+5 17 Raghav 70 6
+6 15 Parsh 70 8
+7 66 Santosh 89 -1
+8 25 Hrishi 95 -1
+9 !Empty!
+
+1. Create Database
+2. Display Database
+3. Add a record
+4. Search a record
+5. Modify a record
+6. Exit
+Enter your choice: 6
