@@ -33,7 +33,7 @@
 
 ## Table of Contents for Output files
 
-| Program Name                     | Description                          |
+| Output File Name                     | Description                          |
 | :-----------------------------:  | :--------------------------------:   |
 |[Assignment1.txt](Assignment1/Assignment1.txt)|Output file for Assignment 1|
 |[Assignment2.txt](Assignment2/Assignment2.txt)|Output file for Assignment 2|
