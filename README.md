@@ -8,7 +8,7 @@
 ## Table of Contents for Assignments
 
 | Program Name                     | Problem Statement                    |
-| :-----------------------------:  | :--------------------------------:   |
+| :-----------------------------:  | :--------------------------------    |
 |[Assignment1.cpp](Assignment1/Assignment1.cpp)|Implement stack as an abstract data type using linked list and use this ADT for conversion of infix expression to postfix, prefix and evaluation of postfix/prefix expression.|
 |[Stack.h](Assignment1/Stack.h)|Header file for Assignment1.|
 |[Stack.cpp](Assignment1/Stack.cpp)|Stack implementation for Assignment1.|
