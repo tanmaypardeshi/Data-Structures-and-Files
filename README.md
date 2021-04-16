@@ -1,4 +1,4 @@
-# Data Sructures and Files Assignments
+# Data Structures and Files Assignments
 
 ## All data structures and files Assignments of SPPU Second Year IT Syllabus
 
